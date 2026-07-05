@@ -41,12 +41,30 @@ http://127.0.0.1:5178/
 - Whether moving near a station is a better interaction than scrolling for multi-topic exploration.
 - How station boards, camera follow, and guided tour mode can explain a capability map.
 - How a future product showroom could combine free exploration with a directed film mode.
+- How a station can open a second-level detail layer with technical notes, resource links, and a focused 3D mini demo.
 
 ## Controls
 
 - `WASD` or arrow keys: move the rover.
 - `自动导览`: let the rover travel through the research stations.
+- `进入节点详情`: available when the rover is near the Shader grass station.
+- `返回主展厅`: close the second-level detail layer.
 - `重置观察`: reset camera framing.
+
+## Current Deep Node
+
+The first deep node is `Shader 草地系统`.
+
+It validates this structure:
+
+```text
+main 3D hub
+  -> station trigger
+  -> second-level detail panel
+  -> focused 3D mini demo
+  -> resource links
+  -> return to hub
+```
 
 ## Research Link
 

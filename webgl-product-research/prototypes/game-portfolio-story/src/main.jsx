@@ -14,7 +14,29 @@ const stations = [
     color: '#7cb342',
     accent: '#d8f3a2',
     body: '把技术参数变成可感知的自然场景：草的密度、风、土壤、光影和镜头共同构成一个可发布的演示短片。',
-    tags: ['GPU', 'Shader', 'Film']
+    tags: ['GPU', 'Shader', 'Film'],
+    detail: {
+      title: 'Shader 草地系统详情层',
+      subtitle: '一个节点可以继续打开技术说明、参数、演示和产物入口。',
+      intro:
+        '这一层模拟把 GrassSystemThreeJS 节点展开成一个小型项目详情页：左边仍是 3D 空间，右侧承载技术拆解和可跳转资源。',
+      metrics: [
+        { label: '渲染核心', value: 'GPU Instancing' },
+        { label: '动态来源', value: 'Vertex Shader' },
+        { label: '展示目标', value: '可发布短片' }
+      ],
+      layers: [
+        '能力说明：草地、风、土壤、光影、镜头如何形成完整场景',
+        '实现原理：同一个草叶几何被大量实例化，再由 shader 控制摆动',
+        '参数入口：密度、风强、草高、颜色、镜头节奏都可以作为演示变量',
+        '产物入口：源码、README、视频、封面、字幕、旁白可以被挂到同一节点'
+      ],
+      links: [
+        'GrassSystemThreeJS-demo/',
+        'THREEJS_GRASS_SYSTEM_CAPABILITY_GUIDE.md',
+        'system-film-share-package.md'
+      ]
+    }
   },
   {
     id: 'scroll',
@@ -293,6 +315,75 @@ function ResearchWorld({ activeStation, setActiveStation, tourMode, onTourDone }
   )
 }
 
+function GrassDetailStage({ visible }) {
+  const group = useRef()
+  const blades = useMemo(() => {
+    return Array.from({ length: 96 }, (_, index) => {
+      const ring = Math.sqrt(index / 96) * 2.1
+      const angle = index * 2.399963
+      return {
+        x: Math.cos(angle) * ring,
+        z: Math.sin(angle) * ring,
+        height: 0.34 + ((index * 17) % 31) / 100,
+        phase: index * 0.37,
+        color: index % 3 === 0 ? '#b7ef7a' : index % 3 === 1 ? '#7cc75a' : '#d5f6a2'
+      }
+    })
+  }, [])
+
+  useFrame(({ clock }) => {
+    if (!group.current) return
+    group.current.visible = visible
+    group.current.children.forEach((child, index) => {
+      if (child.userData.blade) {
+        child.rotation.z = Math.sin(clock.elapsedTime * 1.4 + child.userData.phase) * 0.16
+        child.position.y = child.userData.height * 0.5 + Math.sin(clock.elapsedTime * 0.8 + index) * 0.015
+      }
+    })
+  })
+
+  return (
+    <group ref={group} position={[-9, 0.08, 1.2]} visible={visible}>
+      <mesh rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[2.45, 72]} />
+        <meshStandardMaterial color="#26321f" roughness={0.86} metalness={0.04} />
+      </mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]}>
+        <ringGeometry args={[2.5, 2.62, 96]} />
+        <meshBasicMaterial color="#d8f3a2" transparent opacity={0.72} />
+      </mesh>
+      {blades.map((blade, index) => (
+        <mesh
+          key={index}
+          userData={{ blade: true, phase: blade.phase, height: blade.height }}
+          position={[blade.x, blade.height * 0.5, blade.z]}
+          rotation={[0, blade.phase, 0]}
+        >
+          <boxGeometry args={[0.035, blade.height, 0.055]} />
+          <meshStandardMaterial color={blade.color} roughness={0.76} />
+        </mesh>
+      ))}
+      <Text position={[0, 2.25, -2.2]} fontSize={0.24} maxWidth={4.2} anchorX="center" color="#f7fee7">
+        节点详情：草地参数小实验区
+      </Text>
+      {[
+        ['Density', '-1.7', '#b7ef7a'],
+        ['Wind', '0', '#80ffd8'],
+        ['Height', '1.7', '#fef08a']
+      ].map(([label, x, color]) => (
+        <group key={label} position={[Number(x), 1.15, 2.15]}>
+          <RoundedBox args={[1.2, 0.46, 0.12]} radius={0.05} smoothness={4}>
+            <meshStandardMaterial color="#111827" roughness={0.48} />
+          </RoundedBox>
+          <Text position={[0, 0, 0.08]} fontSize={0.13} anchorX="center" color={color}>
+            {label}
+          </Text>
+        </group>
+      ))}
+    </group>
+  )
+}
+
 function CentralHub() {
   return (
     <group position={[0, 0, 0]}>
@@ -323,8 +414,18 @@ function PathLines() {
   ))
 }
 
-function Interface({ activeStation, tourMode, setTourMode, resetSignal, setResetSignal }) {
+function Interface({
+  activeStation,
+  tourMode,
+  setTourMode,
+  resetSignal,
+  setResetSignal,
+  detailStationId,
+  setDetailStationId
+}) {
   const station = stations.find((item) => item.id === activeStation)
+  const detailStation = stations.find((item) => item.id === detailStationId)
+  const detail = detailStation?.detail
 
   return (
     <div className="interface">
@@ -342,19 +443,65 @@ function Interface({ activeStation, tourMode, setTourMode, resetSignal, setReset
       </header>
 
       <aside className="panel">
-        <p className="panel-kicker">{station ? '当前展区' : '空间总览'}</p>
-        <h2>{station ? station.title : '用空间组织能力，而不是只放模型'}</h2>
-        <p>{station ? station.body : '驾驶小车靠近不同展区，观察 3D 展板、区域触发、相机跟随和自动导览如何组成一个可探索作品集。'}</p>
-        <div className="tags">
-          {(station ? station.tags : ['WASD', 'Camera Follow', 'Interaction Area']).map((tag) => (
-            <span key={tag}>{tag}</span>
-          ))}
-        </div>
+        {detail ? (
+          <>
+            <p className="panel-kicker">节点详情层</p>
+            <h2>{detail.title}</h2>
+            <p>{detail.intro}</p>
+            <div className="metric-grid">
+              {detail.metrics.map((metric) => (
+                <div key={metric.label}>
+                  <strong>{metric.value}</strong>
+                  <span>{metric.label}</span>
+                </div>
+              ))}
+            </div>
+            <ul className="detail-list">
+              {detail.layers.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className="resource-list">
+              {detail.links.map((link) => (
+                <code key={link}>{link}</code>
+              ))}
+            </div>
+            <button className="panel-button" onClick={() => setDetailStationId(null)}>
+              返回主展厅
+            </button>
+          </>
+        ) : (
+          <>
+            <p className="panel-kicker">{station ? '当前展区' : '空间总览'}</p>
+            <h2>{station ? station.title : '用空间组织能力，而不是只放模型'}</h2>
+            <p>
+              {station
+                ? station.body
+                : '驾驶小车靠近不同展区，观察 3D 展板、区域触发、相机跟随和自动导览如何组成一个可探索作品集。'}
+            </p>
+            <div className="tags">
+              {(station ? station.tags : ['WASD', 'Camera Follow', 'Interaction Area']).map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+            {station?.detail && (
+              <button
+                className="panel-button"
+                onClick={() => {
+                  setTourMode(false)
+                  setDetailStationId(station.id)
+                }}
+              >
+                进入节点详情
+              </button>
+            )}
+          </>
+        )}
       </aside>
 
       <div className="controls">
         <span>WASD / 方向键移动</span>
-        <span>靠近圆形展区触发说明</span>
+        <span>{detail ? '详情层可承载子内容、资源和演示' : '靠近圆形展区触发说明'}</span>
         <span>自动导览会按研究路径巡游</span>
       </div>
     </div>
@@ -374,6 +521,7 @@ function App() {
   const [activeStation, setActiveStation] = useState('overview')
   const [tourMode, setTourMode] = useState(false)
   const [resetSignal, setResetSignal] = useState(0)
+  const [detailStationId, setDetailStationId] = useState(null)
 
   return (
     <main>
@@ -386,6 +534,7 @@ function App() {
             tourMode={tourMode}
             onTourDone={() => setTourMode(false)}
           />
+          <GrassDetailStage visible={detailStationId === 'grass'} />
         </Suspense>
       </Canvas>
       <Interface
@@ -394,6 +543,8 @@ function App() {
         setTourMode={setTourMode}
         resetSignal={resetSignal}
         setResetSignal={setResetSignal}
+        detailStationId={detailStationId}
+        setDetailStationId={setDetailStationId}
       />
     </main>
   )

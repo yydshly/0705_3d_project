@@ -9,12 +9,36 @@
 - 从“状态理解”到“任务整理”再到“长期记忆”的完整产品演示；
 - 后续可扩展为视频录制、封面、字幕、旁白与发布素材。
 
-## Run
+## Quick Start
+
+开发模式：
 
 ```bash
 npm install
 npm run dev
 ```
+
+打开终端显示的 Vite 地址，通常是：
+
+```text
+http://127.0.0.1:5173/
+```
+
+构建并预览正式静态版本：
+
+```bash
+npm install
+npm run build
+npm run serve:dist
+```
+
+默认打开：
+
+```text
+http://127.0.0.1:5176/
+```
+
+这个静态预览方式更接近最终发布效果，也方便在 Codex in-app browser 里稳定查看。
 
 ## Asset
 

@@ -8,6 +8,53 @@
 一个 3D 技术项目，如何被理解、改造、演示、录制，并最终服务于真实产品或内容发布？
 ```
 
+## 快速启动
+
+这个仓库不是单一应用，而是一个 3D 项目研究工作区。每个可运行 demo 都在自己的子目录里独立安装依赖、独立启动。
+
+推荐先看最终成品 demo：
+
+```powershell
+cd D:\claude_code\20260704_opendesign\webgl-product-research\prototypes\desktop-ai-companion-site
+npm install
+npm run dev
+```
+
+然后打开终端里显示的 Vite 地址，通常是：
+
+```text
+http://127.0.0.1:5173/
+```
+
+如果想看构建后的正式静态版本：
+
+```powershell
+cd D:\claude_code\20260704_opendesign\webgl-product-research\prototypes\desktop-ai-companion-site
+npm install
+npm run build
+npm run serve:dist
+```
+
+然后打开：
+
+```text
+http://127.0.0.1:5176/
+```
+
+其他可运行入口：
+
+| 目标 | 目录 | 启动方式 |
+| --- | --- | --- |
+| GrassSystemThreeJS 草地/汽车/视频演示 | `GrassSystemThreeJS-demo/` | `npm install` 后执行 `npm run dev` |
+| r3f-scroll-rig 滚动 3D 产品页原型 | `webgl-product-research/prototypes/scroll-product-story/` | `npm install` 后执行 `npm run dev` |
+| 桌面 AI 伴侣 3D 官网 Demo | `webgl-product-research/prototypes/desktop-ai-companion-site/` | `npm install` 后执行 `npm run dev` |
+
+说明：
+
+- 根目录本身不是一个统一的 npm monorepo，不需要在根目录执行 `npm install`。
+- `node_modules/`、`dist/`、录制视频和发布产物默认不提交，需要时在对应子项目里重新生成。
+- 如果只是想理解项目意义和沉淀方法，直接从本 README 往下阅读即可。
+
 ## 项目意义
 
 很多开源 WebGL 项目有很强的技术能力，但普通人很难快速判断：

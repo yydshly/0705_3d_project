@@ -48,6 +48,7 @@ http://127.0.0.1:5176/
 | GrassSystemThreeJS 草地/汽车/视频演示 | `GrassSystemThreeJS-demo/` | `npm install` 后执行 `npm run dev` |
 | r3f-scroll-rig 滚动 3D 产品页原型 | `webgl-product-research/prototypes/scroll-product-story/` | `npm install` 后执行 `npm run dev` |
 | 桌面 AI 伴侣 3D 官网 Demo | `webgl-product-research/prototypes/desktop-ai-companion-site/` | `npm install` 后执行 `npm run dev` |
+| 游戏化 3D 作品集展厅原型 | `webgl-product-research/prototypes/game-portfolio-story/` | `npm install` 后执行 `npm run dev` |
 
 说明：
 

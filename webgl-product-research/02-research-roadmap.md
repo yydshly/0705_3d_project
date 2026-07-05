@@ -44,7 +44,7 @@ Deliverables:
 - Source-level analysis note.
 - Local runnable project copy with compatibility fixes.
 - Capability checklist for game-like 3D portfolios.
-- Decision on whether to build a minimal derivative prototype.
+- Minimal derivative prototype: `prototypes/game-portfolio-story/`.
 
 Success criteria:
 

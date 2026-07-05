@@ -69,3 +69,4 @@ The current priority is `brunosimon/folio-2019`, because it fills a missing rese
 
 - `prototypes/scroll-product-story/`: first derivative prototype that combines HTML story sections, `r3f-scroll-rig`, a global WebGL canvas, scroll-driven 3D object changes, and a directed Film Mode auto-progression. It now also includes `TEMPLATE_GUIDE.md` for reusing the pattern as a 3D product website base.
 - `prototypes/desktop-companion-story/`: isolated real-case prototype derived from `scroll-product-story`, focused on a warm desktop AI companion product story.
+- `prototypes/game-portfolio-story/`: third derivative prototype inspired by `brunosimon/folio-2019`, focused on a controllable 3D research hub with station boards, interaction areas, camera follow, and guided tour mode.

@@ -42,6 +42,9 @@ GrassSystemThreeJS
 
 brunosimon/folio-2019
   -> game-like 3D portfolio, physics, spatial interaction, project boards
+
+google/model-viewer
+  -> practical product 3D viewer, annotations, camera controls, AR, product-page publishing
 ```
 
 The current priority has moved beyond proving the 3D portfolio skeleton. We now know that Samsy Ninja-style output is not mainly about "more 3D"; it is about story, identity, authored assets, camera direction, and proof.
@@ -65,7 +68,12 @@ story-driven 3D portfolio generation
 - `03-skill-upgrade-plan.md`: how research should upgrade `webgl-product-film`.
 - `04-product-direction.md`: possible product directions from this research.
 - `05-story-driven-3d-portfolio-framework.md`: summary of what Samsy Ninja-style sites teach us, what our prototype validates, and what input future 3D website generation needs.
+- `06-research-case-matrix.md`: current case coverage, missing capability areas, and the next research sequence for maturing the skill.
+- `07-current-stage-handoff.md`: current-stage closeout, stable capabilities, unsolved gaps, and the recommended next move toward cinematic product showcases.
 - `templates/project-analysis-template.md`: reusable template for analyzing each project.
+- `templates/product-viewer-input-brief.md`: input brief for generating a practical 3D product viewer page from product name, model, hotspots, variants, and AR needs.
+- `templates/product-viewer-capability-checklist.md`: reusable checklist for product viewer cases such as `google/model-viewer`.
+- `templates/cinematic-product-showcase-input-brief.md`: input brief for launch-page style product animation with entrance, exploded views, feature visualization, and final hero shots.
 - `templates/story-driven-3d-website-input-brief.md`: reusable input brief for generating 3D portfolios, immersive brand sites, and spatial product pages.
 - `templates/game-like-portfolio-capability-checklist.md`: reusable checklist for game-like 3D portfolios, product museums, AI tool showrooms, and virtual exhibitions.
 
@@ -74,6 +82,7 @@ story-driven 3D portfolio generation
 - `analyses/2026-07-05-r3f-scroll-rig.md`: first case study, focused on DOM/WebGL synchronization and scroll-driven immersive websites.
 - `analyses/2026-07-05-r3f-scroll-rig-evidence-chain.md`: clean evidence chain for deciding what can be safely added to `webgl-product-film`.
 - `analyses/2026-07-05-bruno-simon-folio-2019.md`: third research sample, focused on game-like 3D portfolio architecture, physics interaction, spatial project boards, and reusable product/portfolio exhibition patterns.
+- `analyses/2026-07-05-google-model-viewer.md`: practical product viewer case, focused on GLB/glTF display, hotspots, camera controls, material variants, loading behavior, and AR publishing.
 
 ## Cases
 
@@ -84,6 +93,7 @@ story-driven 3D portfolio generation
 - `prototypes/scroll-product-story/`: first derivative prototype that combines HTML story sections, `r3f-scroll-rig`, a global WebGL canvas, scroll-driven 3D object changes, and a directed Film Mode auto-progression. It now also includes `TEMPLATE_GUIDE.md` for reusing the pattern as a 3D product website base.
 - `prototypes/desktop-companion-story/`: isolated real-case prototype derived from `scroll-product-story`, focused on a warm desktop AI companion product story.
 - `prototypes/game-portfolio-story/`: third derivative prototype inspired by `brunosimon/folio-2019` and Samsy Ninja-style immersive portfolios. It now validates spatial nodes, detail layers, replaceable covers, Film Mode, and a lightweight publishing package.
+- `prototypes/product-viewer-story/`: practical product viewer prototype using `@google/model-viewer`, focused on one inspectable GLB object, hotspots, camera views, material tone controls, AR affordance, and a reusable template guide.
 
 ## Current Next Step
 
@@ -92,13 +102,13 @@ The next useful move is not recording. Recording is already a known workflow fro
 Next priority:
 
 ```text
-Turn the research into reusable generation guidance.
+Close the current research stage, then start a separate cinematic product showcase branch.
 ```
 
 Recommended work:
 
-1. Upgrade `webgl-product-film` references with the story-driven 3D portfolio framework.
-2. Use `templates/story-driven-3d-website-input-brief.md` as the input brief for future 3D portfolio/product website generation.
-3. Test the template on a real product or personal brand instead of another abstract demo.
-4. Replace temporary SVG covers with real screenshots, generated images, or GLB/visual assets.
-5. Only then reconnect recording/export as a publishing step.
+1. Read `07-current-stage-handoff.md` to understand what is already stable and what is not solved.
+2. Treat `prototypes/product-viewer-story/` as the practical product-inspection branch, not the cinematic animation branch.
+3. Start the next isolated prototype only when the goal is clear: `prototypes/cinematic-product-showcase/`.
+4. Use that next branch to study earphone-style product entrance, exploded views, authored camera motion, feature visualization, and final hero shots.
+5. Reconnect recording/export only after the cinematic scene has a convincing timeline.

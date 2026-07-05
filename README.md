@@ -49,6 +49,7 @@ http://127.0.0.1:5176/
 | r3f-scroll-rig 滚动 3D 产品页原型 | `webgl-product-research/prototypes/scroll-product-story/` | `npm install` 后执行 `npm run dev` |
 | 桌面 AI 伴侣 3D 官网 Demo | `webgl-product-research/prototypes/desktop-ai-companion-site/` | `npm install` 后执行 `npm run dev` |
 | 游戏化 3D 作品集展厅原型 | `webgl-product-research/prototypes/game-portfolio-story/` | `npm install` 后执行 `npm run dev` |
+| Product Viewer / model-viewer 产品检查原型 | `webgl-product-research/prototypes/product-viewer-story/` | `npm install` 后执行 `npm run dev` |
 
 说明：
 
@@ -308,3 +309,17 @@ webgl-product-research/05-story-driven-3d-portfolio-framework.md
 ```
 
 这就是本工作区的核心方向：把 WebGL 技术能力转化为可理解、可展示、可发布、可复用的产品表达能力。
+## Research Case Matrix
+
+To judge whether the `webgl-product-film` skill and the current research samples are mature enough, read:
+
+```text
+webgl-product-research/06-research-case-matrix.md
+```
+
+This matrix records:
+
+- which case types are already covered;
+- which capability areas are still missing;
+- what each future case must produce;
+- which research direction should come next.

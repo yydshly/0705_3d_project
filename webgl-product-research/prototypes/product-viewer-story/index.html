@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A practical AI companion hardware product viewer prototype using google/model-viewer."
+    />
+    <title>LumaDock AI Companion Viewer</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">MODEL-VIEWER PRODUCT CASE</p>
+          <h1>LumaDock AI Companion</h1>
+          <p class="subtitle">
+            一个桌面 AI 伴侣硬件概念：用 3D 模型解释外观、感知、交互、扩展和 AR 预览能力。
+          </p>
+        </div>
+        <nav class="top-actions" aria-label="Viewer actions">
+          <button class="ghost-button" type="button" data-action="reset">重置视角</button>
+          <button class="primary-button" type="button" data-action="tour">播放产品导览</button>
+        </nav>
+      </header>
+
+      <section class="tour-status" aria-label="Guided product tour">
+        <div>
+          <p class="eyebrow">GUIDED STORY</p>
+          <h2 id="tour-title">从整体外观开始，逐步拆解产品能力</h2>
+          <p id="tour-copy">
+            这个导览把 model-viewer 的能力组织成一条产品叙事线：先建立产品印象，再进入热点、材质、视角和 AR。
+          </p>
+        </div>
+        <ol class="tour-steps" aria-label="Tour steps">
+          <li class="is-active" data-tour-item="hero">整体</li>
+          <li data-tour-item="sensor">感知</li>
+          <li data-tour-item="core">交互</li>
+          <li data-tour-item="dock">扩展</li>
+          <li data-tour-item="finish">复用</li>
+        </ol>
+      </section>
+
+      <section class="product-layout" aria-label="AI companion hardware product viewer">
+        <aside class="info-panel">
+          <p class="eyebrow">PRODUCT STORY</p>
+          <h2>让用户先看清硬件，再理解它如何成为桌面 AI 伴侣。</h2>
+          <p>
+            这个案例验证 `model-viewer` 的实用价值：一个产品模型可以被旋转、缩放、标注、切换外观，并在支持设备上进入 AR 预览。它适合真实产品页，而不是复杂 3D 世界。
+          </p>
+
+          <div class="metric-grid">
+            <div>
+              <strong>GLB</strong>
+              <span>专用硬件模型</span>
+            </div>
+            <div>
+              <strong>3</strong>
+              <span>产品热点</span>
+            </div>
+            <div>
+              <strong>AR</strong>
+              <span>桌面预览</span>
+            </div>
+          </div>
+
+          <section class="control-group" aria-label="Camera views">
+            <h3>观察视角</h3>
+            <button type="button" data-view="hero">整机展示</button>
+            <button type="button" data-view="front">正面交互</button>
+            <button type="button" data-view="side">侧面接口</button>
+            <button type="button" data-view="detail">感知细节</button>
+          </section>
+
+          <section class="control-group" aria-label="Material tone">
+            <h3>外观方案</h3>
+            <button type="button" data-tone="original">暖白</button>
+            <button type="button" data-tone="mint">晨雾绿</button>
+            <button type="button" data-tone="graphite">深空灰</button>
+          </section>
+        </aside>
+
+        <section class="viewer-stage">
+          <model-viewer
+            id="product-viewer"
+            src="/models/lumadock-ai-companion.glb"
+            poster="/poster.svg"
+            alt="LumaDock AI Companion 3D hardware model"
+            camera-controls
+            touch-action="pan-y"
+            auto-rotate
+            auto-rotate-delay="1600"
+            rotation-per-second="12deg"
+            shadow-intensity="1"
+            exposure="0.92"
+            environment-image="neutral"
+            camera-orbit="35deg 66deg 4.4m"
+            camera-target="0m 0.98m 0m"
+            field-of-view="30deg"
+            interpolation-decay="120"
+            min-camera-orbit="auto 30deg 2.1m"
+            max-camera-orbit="auto 82deg 7m"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+          >
+            <button
+              class="hotspot"
+              slot="hotspot-sensor"
+              data-position="0m 1.75m 0.39m"
+              data-normal="0m 0m 1m"
+              data-view="detail"
+              data-point="sensor"
+            >
+              感知光环
+            </button>
+            <button
+              class="hotspot"
+              slot="hotspot-core"
+              data-position="0m 1.18m 0.39m"
+              data-normal="0m 0m 1m"
+              data-view="front"
+              data-point="core"
+            >
+              表情屏
+            </button>
+            <button
+              class="hotspot"
+              slot="hotspot-dock"
+              data-position="0.66m 0.9m 0.04m"
+              data-normal="1m 0m 0m"
+              data-view="side"
+              data-point="dock"
+            >
+              扩展接口
+            </button>
+          </model-viewer>
+        </section>
+
+        <aside class="detail-panel" aria-live="polite">
+          <p class="eyebrow">CURRENT FOCUS</p>
+          <h2 id="detail-title">AI 桌面中枢</h2>
+          <p id="detail-copy">
+            LumaDock 是一个放在桌面上的 AI 伴侣硬件概念。通过 `model-viewer`，用户可以先检查产品本体，再理解它的陪伴、提醒和设备联动能力。
+          </p>
+          <div class="capability-list">
+            <span>Camera Controls</span>
+            <span>Hotspots</span>
+            <span>Material API</span>
+            <span>AR Modes</span>
+          </div>
+          <dl class="spec-list">
+            <div>
+              <dt>适用页面</dt>
+              <dd>官网首屏 / 众筹页 / 电商详情 / 产品说明</dd>
+            </div>
+            <div>
+              <dt>核心资产</dt>
+              <dd>GLB 硬件模型、热点文案、产品参数、AR 预览</dd>
+            </div>
+            <div>
+              <dt>技术角色</dt>
+              <dd>WebGL 负责 GPU 渲染，model-viewer 负责封装产品查看交互</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="product-sections" aria-label="Product information">
+        <article>
+          <p class="eyebrow">COMPANION</p>
+          <h2>它不是普通音箱，而是桌面上的 AI 伙伴。</h2>
+          <p>
+            正面的表情屏用于状态反馈和轻量陪伴，顶部感知区负责语音、环境和在场感输入。
+          </p>
+        </article>
+        <article>
+          <p class="eyebrow">WORKFLOW</p>
+          <h2>提醒、对话、设备联动。</h2>
+          <p>
+            侧面的扩展接口和后部磁吸连接区可以表达充电、外设、底座和桌面设备联动能力。
+          </p>
+        </article>
+        <article>
+          <p class="eyebrow">TEMPLATE</p>
+          <h2>可复用为产品 3D Viewer 模板。</h2>
+          <p>
+            后续只要替换模型、热点、视角和产品文案，就能生成手机、耳机、机器人或其他硬件的 3D 产品页。
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

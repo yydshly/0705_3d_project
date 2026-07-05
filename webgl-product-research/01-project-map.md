@@ -130,6 +130,12 @@ Research focus:
 - What a "boring but useful" product viewer does better than a flashy demo.
 - How to design default controls for non-technical users.
 
+Current local artifacts:
+
+- `analyses/2026-07-05-google-model-viewer.md`
+- `projects/model-viewer/README.md`
+- `templates/product-viewer-capability-checklist.md`
+
 ## Layer 4: Real-World Scene / 3D Gaussian Splatting
 
 ### sparkjsdev/spark

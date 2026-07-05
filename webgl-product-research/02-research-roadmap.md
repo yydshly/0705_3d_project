@@ -92,11 +92,13 @@ Deliverables:
 - Product-viewer capability checklist.
 - Notes on default controls and user expectations.
 - Skill upgrade notes for product inspection workflows.
+- Minimal derivative prototype: `prototypes/product-viewer-story/`.
 
 Success criteria:
 
 - We can distinguish product viewer needs from cinematic demo needs.
 - We can design a practical 3D product display page.
+- We can decide when to use `model-viewer` instead of custom Three.js/R3F.
 
 ## Phase 5: Real-World Spatial Scene
 
@@ -147,12 +149,38 @@ Success criteria:
 
 ## Immediate Next Step
 
-Move from project research to reusable generation workflow.
+Close the current research stage before starting another prototype.
 
 Recommended process:
 
 1. Treat `prototypes/game-portfolio-story/` as enough evidence for the 3D portfolio skeleton.
-2. Use `05-story-driven-3d-portfolio-framework.md` as the summary of the Samsy Ninja-style lesson: story, identity, assets, interaction, and Film Mode.
-3. Add a reusable input brief for future 3D portfolio/product website generation.
-4. Upgrade `webgl-product-film` with bounded conclusions only from the evidence already collected.
-5. Test the workflow on a real project or brand, not another abstract research hub.
+2. Treat `prototypes/product-viewer-story/` as enough evidence for the practical `model-viewer` product-inspection branch.
+3. Use `07-current-stage-handoff.md` as the closeout document for this stage.
+4. Use `06-research-case-matrix.md` to choose future gaps deliberately.
+5. If continuing from the earphone-style reference, start an isolated `prototypes/cinematic-product-showcase/` branch instead of extending `product-viewer-story`.
+
+## Next Planned Stage: Cinematic Product Showcase
+
+Primary direction:
+
+- Earphone / hardware launch-page style product animation.
+
+Goal:
+
+- Understand how a product page becomes a directed 3D product film rather than a static viewer.
+- Learn product entrance, camera choreography, exploded views, part separation, feature visualization, material changes, and final hero framing.
+- Decide when a project should use custom Three.js / React Three Fiber instead of `model-viewer`.
+
+Expected deliverables:
+
+- Input brief for cinematic hardware product demos.
+- Minimal isolated prototype under `prototypes/cinematic-product-showcase/`.
+- README explaining the difference between product viewer and cinematic showcase.
+- Capability checklist for product animation and exploded-view demos.
+
+Success criteria:
+
+- The demo proves authored animation, not only camera rotation.
+- At least two product parts can separate or move.
+- At least one feature is visualized with a real effect rather than text only.
+- The timeline can play automatically and can later become a recorded video.

@@ -4,6 +4,30 @@ This map groups projects by the capability they represent. Research should focus
 
 ## Layer 1: Immersive Website / Portfolio
 
+### brunosimon/folio-2019
+
+Link: https://github.com/brunosimon/folio-2019
+
+Core capability:
+
+- Turn a personal portfolio into an explorable 3D world.
+- Use a physics-driven car as the user's navigation entity.
+- Represent projects as spatial boards, floors, trophies, links, and interactive zones.
+- Combine Three.js, cannon/cannon-es physics, sound, post-processing, custom shaders, and authored GLB assets.
+
+Why it matters:
+
+- Complements scroll-driven websites with a game-like spatial showcase pattern.
+- Helps us understand why some 3D websites feel like real spaces instead of ordinary pages with decorative models.
+- Useful for future personal portfolios, product museums, AI tool showrooms, and virtual exhibitions.
+
+Research focus:
+
+- Vehicle control and camera-follow design.
+- Project data mapped into spatial boards and areas.
+- Asset organization: GLB, collision meshes, matcaps, floor shadows, sounds.
+- How to decide between scroll-driven storytelling and free exploration.
+
 ### 14islands/r3f-scroll-rig
 
 Link: https://github.com/14islands/r3f-scroll-rig

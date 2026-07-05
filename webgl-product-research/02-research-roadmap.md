@@ -27,7 +27,32 @@ Success criteria:
 - We can identify what is reusable for a product showcase page.
 - We can define a small demo idea inspired by it.
 
-## Phase 2: Modern R3F Working Style
+## Phase 2: Game-Like Spatial Portfolio
+
+Primary projects:
+
+- `brunosimon/folio-2019`
+
+Goal:
+
+- Understand how a portfolio can become an explorable 3D world.
+- Learn how physics, camera follow, project boards, sounds, and authored assets create a spatial experience.
+- Decide when a product/portfolio should use free exploration instead of scroll-driven storytelling.
+
+Deliverables:
+
+- Source-level analysis note.
+- Local runnable project copy with compatibility fixes.
+- Capability checklist for game-like 3D portfolios.
+- Decision on whether to build a minimal derivative prototype.
+
+Success criteria:
+
+- We can explain the difference between "3D model inside a page" and "page as a 3D world".
+- We can map a product or portfolio list into areas, boards, interaction zones, and navigation entities.
+- We can identify which parts are reusable and which parts depend on custom assets.
+
+## Phase 3: Modern R3F Working Style
 
 Primary projects:
 
@@ -51,7 +76,7 @@ Success criteria:
 - We can decide when to use plain Three.js and when to use R3F.
 - We can define a starter structure for a future immersive product page.
 
-## Phase 3: Product Viewer Pattern
+## Phase 4: Product Viewer Pattern
 
 Primary project:
 
@@ -73,7 +98,7 @@ Success criteria:
 - We can distinguish product viewer needs from cinematic demo needs.
 - We can design a practical 3D product display page.
 
-## Phase 4: Real-World Spatial Scene
+## Phase 5: Real-World Spatial Scene
 
 Primary projects:
 
@@ -97,7 +122,7 @@ Success criteria:
 - We can explain when 3DGS is better than GLB models.
 - We can decide whether 3DGS belongs in our product roadmap.
 
-## Phase 5: Low-Level GPU Understanding
+## Phase 6: Low-Level GPU Understanding
 
 Primary projects:
 
@@ -122,13 +147,11 @@ Success criteria:
 
 ## Immediate Next Step
 
-Analyze `14islands/r3f-scroll-rig` first.
+Continue `brunosimon/folio-2019` as the third research sample.
 
 Recommended process:
 
-1. Read README and examples.
-2. Clone and run only if the README suggests it is practical.
-3. Use `webgl-product-film` to scan and summarize architecture.
-4. Write a project analysis note.
-5. Extract Skill upgrades.
-6. Decide whether to create our own scroll-driven 3D showcase prototype.
+1. Finish the source-level analysis.
+2. Extract a reusable "game-like portfolio" capability checklist.
+3. Decide whether to create a minimal derivative prototype.
+4. Update `webgl-product-film` with bounded conclusions only after prototype/runtime evidence.

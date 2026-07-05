@@ -29,11 +29,22 @@ That document explains why this research exists, how it connects to `GrassSystem
 - Real-world scene display: 3D Gaussian Splatting, scanned spaces, browser-native spatial scenes.
 - Low-level GPU foundation: WebGL, WebGPU, shaders, render pipelines.
 
-## Current Priority
+## Current Research State
 
-Start with `14islands/r3f-scroll-rig`.
+The research now has three concrete samples:
 
-It is closest to our next target: immersive website, personal portfolio, product story page, and Samsy Ninja-style 3D presentation.
+```text
+GrassSystemThreeJS
+  -> shader / GPU vegetation / cinematic technical demo
+
+14islands/r3f-scroll-rig
+  -> scroll-driven DOM + WebGL immersive product page
+
+brunosimon/folio-2019
+  -> game-like 3D portfolio, physics, spatial interaction, project boards
+```
+
+The current priority is `brunosimon/folio-2019`, because it fills a missing research category: how a portfolio or product collection can become an explorable 3D world instead of a scroll-only page.
 
 ## Files
 
@@ -42,11 +53,13 @@ It is closest to our next target: immersive website, personal portfolio, product
 - `03-skill-upgrade-plan.md`: how research should upgrade `webgl-product-film`.
 - `04-product-direction.md`: possible product directions from this research.
 - `templates/project-analysis-template.md`: reusable template for analyzing each project.
+- `templates/game-like-portfolio-capability-checklist.md`: reusable checklist for game-like 3D portfolios, product museums, AI tool showrooms, and virtual exhibitions.
 
 ## Analyses
 
 - `analyses/2026-07-05-r3f-scroll-rig.md`: first case study, focused on DOM/WebGL synchronization and scroll-driven immersive websites.
 - `analyses/2026-07-05-r3f-scroll-rig-evidence-chain.md`: clean evidence chain for deciding what can be safely added to `webgl-product-film`.
+- `analyses/2026-07-05-bruno-simon-folio-2019.md`: third research sample, focused on game-like 3D portfolio architecture, physics interaction, spatial project boards, and reusable product/portfolio exhibition patterns.
 
 ## Cases
 

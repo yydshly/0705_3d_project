@@ -10,6 +10,9 @@ const stations = [
     id: 'grass',
     title: 'Shader 草地系统',
     short: 'GPU 实例化、风、草高、密度',
+    exhibit: '自然场景生成',
+    outcome: '把 GPU 草地系统包装成可发布的产品短片和技术说明。',
+    useCase: '适合园林、游戏地形、数字孪生、自然产品展示。',
     position: [-9, 0, -3],
     color: '#7cb342',
     accent: '#d8f3a2',
@@ -42,6 +45,9 @@ const stations = [
     id: 'scroll',
     title: '滚动驱动 3D 官网',
     short: 'DOM + WebGL 同步叙事',
+    exhibit: '沉浸式官网',
+    outcome: '把滚动条变成 3D 时间轴，让文字、模型和镜头同步推进。',
+    useCase: '适合品牌官网、个人作品页、产品发布页、故事型落地页。',
     position: [0, 0, -8],
     color: '#4d8df7',
     accent: '#b9d1ff',
@@ -74,6 +80,9 @@ const stations = [
     id: 'spatial',
     title: '游戏化空间作品集',
     short: '小车、展区、展板、交互区域',
+    exhibit: '空间作品集',
+    outcome: '把项目列表变成可探索空间，用移动和触发替代普通导航。',
+    useCase: '适合个人作品集、线上展览、能力地图、教育导览。',
     position: [9, 0, -2],
     color: '#f2a65a',
     accent: '#ffd7aa',
@@ -106,6 +115,9 @@ const stations = [
     id: 'product',
     title: '产品展示视频化',
     short: '导演节奏、字幕、旁白、封面',
+    exhibit: '演示视频工厂',
+    outcome: '把 WebGL 页面转成带字幕、旁白、封面和发布说明的视频资产。',
+    useCase: '适合抖音、B 站、官网案例、产品演示、技术传播。',
     position: [3, 0, 7],
     color: '#d65a7a',
     accent: '#ffc0cf',
@@ -138,6 +150,9 @@ const stations = [
     id: 'skill',
     title: '可复用 Skill',
     short: '分析、原型、沉淀、复用',
+    exhibit: '方法论资产',
+    outcome: '把一次研究沉淀为下次能直接调用的工作流。',
+    useCase: '适合持续研究开源项目、生成产品原型、复用视频化流程。',
     position: [-7, 0, 6],
     color: '#8b72e6',
     accent: '#d4c8ff',
@@ -169,6 +184,11 @@ const stations = [
 ]
 
 const overviewTags = ['Research Map', '3D Navigation', 'Reusable Skill']
+const brandStats = [
+  ['03', 'Research Samples'],
+  ['05', 'Capability Nodes'],
+  ['01', 'Reusable Workflow']
+]
 
 const tourPath = [
   new THREE.Vector3(-10, 0, -3),
@@ -398,6 +418,28 @@ function StationInstallation({ station, active }) {
   )
 }
 
+function StationCover({ station, active }) {
+  return (
+    <group position={[0, 0.92, 1.65]} rotation={[-0.08, 0, 0]}>
+      <RoundedBox args={[2.55, 1.1, 0.16]} radius={0.08} smoothness={4}>
+        <meshStandardMaterial
+          color={active ? station.color : '#101827'}
+          emissive={station.color}
+          emissiveIntensity={active ? 0.34 : 0.1}
+          roughness={0.5}
+          metalness={0.08}
+        />
+      </RoundedBox>
+      <Text position={[0, 0.22, 0.11]} fontSize={0.18} maxWidth={2.25} anchorX="center" textAlign="center" color="#ffffff">
+        {station.exhibit}
+      </Text>
+      <Text position={[0, -0.16, 0.11]} fontSize={0.095} maxWidth={2.15} anchorX="center" textAlign="center" lineHeight={1.3} color="#e2e8f0">
+        {station.outcome}
+      </Text>
+    </group>
+  )
+}
+
 function Station({ station, active }) {
   const pulse = useRef()
 
@@ -454,6 +496,7 @@ function Station({ station, active }) {
         </Text>
       </group>
       <StationInstallation station={station} active={active} />
+      <StationCover station={station} active={active} />
       <Float speed={active ? 2.1 : 1.1} floatIntensity={active ? 0.32 : 0.12}>
         <mesh position={[0, 3.1, 0]}>
           <octahedronGeometry args={[0.45, 0]} />
@@ -608,6 +651,49 @@ function GrassDetailStage({ visible }) {
   )
 }
 
+function DetailFocusStage({ stationId }) {
+  const station = stations.find((item) => item.id === stationId)
+  const group = useRef()
+
+  useFrame(({ clock }) => {
+    if (group.current) {
+      group.current.rotation.y = Math.sin(clock.elapsedTime * 0.45) * 0.06
+    }
+  })
+
+  if (!station) return null
+
+  return (
+    <group ref={group} position={[station.position[0], 0.1, station.position[2] + 3.35]}>
+      <mesh rotation={[-Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[1.35, 1.48, 72]} />
+        <meshBasicMaterial color={station.accent} transparent opacity={0.72} />
+      </mesh>
+      <RoundedBox args={[3.1, 0.62, 0.14]} position={[0, 1.08, 0]} radius={0.07} smoothness={4}>
+        <meshStandardMaterial color="#0f172a" emissive={station.color} emissiveIntensity={0.2} roughness={0.48} />
+      </RoundedBox>
+      <Text position={[0, 1.12, 0.1]} fontSize={0.15} maxWidth={2.75} anchorX="center" textAlign="center" color="#f8fafc">
+        {station.useCase}
+      </Text>
+      {[
+        ['Outcome', -1.05],
+        ['Use Case', 0],
+        ['Resources', 1.05]
+      ].map(([label, x]) => (
+        <group key={label} position={[x, 0.38, 0]}>
+          <mesh>
+            <boxGeometry args={[0.72, 0.18, 0.72]} />
+            <meshStandardMaterial color={station.color} emissive={station.color} emissiveIntensity={0.18} roughness={0.58} />
+          </mesh>
+          <Text position={[0, 0.22, 0]} fontSize={0.095} anchorX="center" color="#ffffff">
+            {label}
+          </Text>
+        </group>
+      ))}
+    </group>
+  )
+}
+
 function CentralHub() {
   return (
     <group position={[0, 0, 0]}>
@@ -625,6 +711,32 @@ function CentralHub() {
       <Text position={[0, 0.1, 0.8]} rotation={[-Math.PI / 2, 0, 0]} fontSize={0.16} color="#93c5fd" anchorX="center">
         {'repo -> prototype -> film -> skill'}
       </Text>
+      <group position={[0, 1.65, 0]}>
+        <RoundedBox args={[3.25, 0.72, 0.18]} radius={0.08} smoothness={4}>
+          <meshStandardMaterial color="#0f172a" emissive="#14b8a6" emissiveIntensity={0.22} roughness={0.42} />
+        </RoundedBox>
+        <Text position={[0, 0.08, 0.12]} fontSize={0.18} color="#f8fafc" anchorX="center">
+          3D Capability Atlas
+        </Text>
+        <Text position={[0, -0.18, 0.12]} fontSize={0.085} color="#80ffd8" anchorX="center">
+          Interactive WebGL research portfolio
+        </Text>
+      </group>
+      {[0, 1, 2].map((index) => {
+        const angle = (index / 3) * Math.PI * 2 + 0.35
+        return (
+          <group key={index} position={[Math.cos(angle) * 1.95, 0.48, Math.sin(angle) * 1.95]}>
+            <mesh>
+              <cylinderGeometry args={[0.08, 0.12, 0.9, 6]} />
+              <meshStandardMaterial color="#1e293b" emissive="#38bdf8" emissiveIntensity={0.18} roughness={0.48} />
+            </mesh>
+            <mesh position={[0, 0.52, 0]}>
+              <sphereGeometry args={[0.12, 16, 16]} />
+              <meshStandardMaterial color="#80ffd8" emissive="#14b8a6" emissiveIntensity={1.1} />
+            </mesh>
+          </group>
+        )
+      })}
     </group>
   )
 }
@@ -662,8 +774,8 @@ function Interface({
     <div className="interface">
       <header className="topbar">
         <div>
-          <p className="eyebrow">Research Prototype 03</p>
-          <h1>游戏化 3D 作品集展厅</h1>
+          <p className="eyebrow">V1.2 Branded Showroom</p>
+          <h1>3D 能力研究作品集</h1>
         </div>
         <div className="actions">
           <button className={tourMode ? 'active' : ''} onClick={() => setTourMode((value) => !value)}>
@@ -672,6 +784,19 @@ function Interface({
           <button onClick={() => setResetSignal(resetSignal + 1)}>重置观察</button>
         </div>
       </header>
+
+      <section className="brand-panel">
+        <p className="eyebrow">Inspired by immersive portfolio sites</p>
+        <h2>把技术研究变成可探索、可讲解、可复用的 3D 官网原型</h2>
+        <div>
+          {brandStats.map(([value, label]) => (
+            <span key={label}>
+              <strong>{value}</strong>
+              {label}
+            </span>
+          ))}
+        </div>
+      </section>
 
       <aside className="panel">
         {detail ? (
@@ -693,6 +818,7 @@ function Interface({
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            {detailStation?.useCase && <p className="use-case">应用场景：{detailStation.useCase}</p>}
             <div className="resource-list">
               {detail.links.map((link) => (
                 <code key={link}>{link}</code>
@@ -712,6 +838,12 @@ function Interface({
                 ? station.body
                 : '驾驶小车靠近不同展区，观察 3D 展板、区域触发、相机跟随和自动导览如何组成一个可探索作品集。'}
             </p>
+            {station && (
+              <div className="outcome-box">
+                <strong>{station.exhibit}</strong>
+                <span>{station.outcome}</span>
+              </div>
+            )}
             <div className="tags">
               {(station ? station.tags : overviewTags).map((tag) => (
                 <span key={tag}>{tag}</span>
@@ -784,6 +916,7 @@ function App() {
             tourMode={tourMode}
             onTourDone={() => setTourMode(false)}
           />
+          <DetailFocusStage stationId={detailStationId} />
           <GrassDetailStage visible={detailStationId === 'grass'} />
         </Suspense>
       </Canvas>

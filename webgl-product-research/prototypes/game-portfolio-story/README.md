@@ -53,6 +53,16 @@ This version moves the prototype from a rough movement test toward a readable re
 - The guided tour moves more slowly and pauses near stations to feel more like a walkthrough.
 - The right-side research path can open each node directly for faster review.
 
+## V1.2 Branded Portfolio Upgrade
+
+This version moves closer to an immersive portfolio pattern inspired by sites like Samsy Ninja:
+
+- Adds a branded first-view layer: `3D Capability Atlas`.
+- Adds portfolio-style exhibit data for every node: exhibit type, outcome, and use case.
+- Adds a 3D cover card to each station so the scene reads more like a project gallery.
+- Adds a detail focus stage for every node, so opening details changes both the UI and the 3D scene.
+- Keeps the project positioned as a research portfolio, not a clone of any specific website.
+
 ## Controls
 
 - `WASD` or arrow keys: move the rover.

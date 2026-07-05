@@ -95,6 +95,51 @@ h1 {
   line-height: 1.12;
 }
 
+.brand-panel {
+  background: rgba(7, 12, 23, 0.5);
+  border: 1px solid rgba(128, 255, 216, 0.18);
+  border-radius: 8px;
+  left: 50%;
+  max-width: 560px;
+  padding: 16px 18px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  top: 86px;
+  transform: translateX(-50%);
+  width: min(560px, calc(100vw - 48px));
+}
+
+.brand-panel h2 {
+  color: #f8fafc;
+  font-size: 20px;
+  font-weight: 720;
+  line-height: 1.32;
+  margin: 0;
+}
+
+.brand-panel div {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 12px;
+}
+
+.brand-panel span {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 7px;
+  color: #9fb7d9;
+  display: grid;
+  font-size: 11px;
+  gap: 2px;
+  padding: 8px 6px;
+}
+
+.brand-panel strong {
+  color: #80ffd8;
+  font-size: 18px;
+}
+
 .actions {
   display: flex;
   gap: 10px;
@@ -159,6 +204,29 @@ h1 {
   font-size: 13px !important;
   line-height: 1.5 !important;
   margin: -4px 0 12px !important;
+}
+
+.outcome-box,
+.use-case {
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(128, 255, 216, 0.18);
+  border-radius: 8px;
+  margin-top: 15px;
+  padding: 12px;
+}
+
+.outcome-box strong {
+  color: #f8fafc;
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.outcome-box span,
+.use-case {
+  color: #b9c8dc;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .metric-grid {
@@ -316,6 +384,10 @@ h1 {
     max-width: none;
     padding: 16px;
     right: 14px;
+  }
+
+  .brand-panel {
+    display: none;
   }
 
   .panel h2 {

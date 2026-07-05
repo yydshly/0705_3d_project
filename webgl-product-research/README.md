@@ -44,7 +44,19 @@ brunosimon/folio-2019
   -> game-like 3D portfolio, physics, spatial interaction, project boards
 ```
 
-The current priority is `brunosimon/folio-2019`, because it fills a missing research category: how a portfolio or product collection can become an explorable 3D world instead of a scroll-only page.
+The current priority has moved beyond proving the 3D portfolio skeleton. We now know that Samsy Ninja-style output is not mainly about "more 3D"; it is about story, identity, authored assets, camera direction, and proof.
+
+Current focus:
+
+```text
+story-driven 3D portfolio generation
+  -> brand identity
+  -> spatial nodes
+  -> detail layers
+  -> Film Mode
+  -> publishing assets
+  -> reusable skill/template input
+```
 
 ## Files
 
@@ -52,7 +64,9 @@ The current priority is `brunosimon/folio-2019`, because it fills a missing rese
 - `02-research-roadmap.md`: phased research plan.
 - `03-skill-upgrade-plan.md`: how research should upgrade `webgl-product-film`.
 - `04-product-direction.md`: possible product directions from this research.
+- `05-story-driven-3d-portfolio-framework.md`: summary of what Samsy Ninja-style sites teach us, what our prototype validates, and what input future 3D website generation needs.
 - `templates/project-analysis-template.md`: reusable template for analyzing each project.
+- `templates/story-driven-3d-website-input-brief.md`: reusable input brief for generating 3D portfolios, immersive brand sites, and spatial product pages.
 - `templates/game-like-portfolio-capability-checklist.md`: reusable checklist for game-like 3D portfolios, product museums, AI tool showrooms, and virtual exhibitions.
 
 ## Analyses
@@ -69,4 +83,22 @@ The current priority is `brunosimon/folio-2019`, because it fills a missing rese
 
 - `prototypes/scroll-product-story/`: first derivative prototype that combines HTML story sections, `r3f-scroll-rig`, a global WebGL canvas, scroll-driven 3D object changes, and a directed Film Mode auto-progression. It now also includes `TEMPLATE_GUIDE.md` for reusing the pattern as a 3D product website base.
 - `prototypes/desktop-companion-story/`: isolated real-case prototype derived from `scroll-product-story`, focused on a warm desktop AI companion product story.
-- `prototypes/game-portfolio-story/`: third derivative prototype inspired by `brunosimon/folio-2019`, focused on a controllable 3D research hub with station boards, interaction areas, camera follow, and guided tour mode.
+- `prototypes/game-portfolio-story/`: third derivative prototype inspired by `brunosimon/folio-2019` and Samsy Ninja-style immersive portfolios. It now validates spatial nodes, detail layers, replaceable covers, Film Mode, and a lightweight publishing package.
+
+## Current Next Step
+
+The next useful move is not recording. Recording is already a known workflow from the GrassSystemThreeJS work.
+
+Next priority:
+
+```text
+Turn the research into reusable generation guidance.
+```
+
+Recommended work:
+
+1. Upgrade `webgl-product-film` references with the story-driven 3D portfolio framework.
+2. Use `templates/story-driven-3d-website-input-brief.md` as the input brief for future 3D portfolio/product website generation.
+3. Test the template on a real product or personal brand instead of another abstract demo.
+4. Replace temporary SVG covers with real screenshots, generated images, or GLB/visual assets.
+5. Only then reconnect recording/export as a publishing step.

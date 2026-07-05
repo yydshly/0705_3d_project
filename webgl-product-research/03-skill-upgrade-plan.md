@@ -92,6 +92,36 @@ Reference file candidate:
 references/director-templates.md
 ```
 
+### 2b. Story-Driven 3D Portfolio Generation
+
+Triggered by:
+
+- Samsy Ninja-style personal websites.
+- Game-like project collections.
+- Brand/product sites that need a memorable 3D world.
+- Requests like "make a 3D portfolio", "make an immersive product website", or "turn my projects into a 3D exhibition".
+
+Add to Skill:
+
+- Start with identity before 3D implementation.
+- Ask for brand, audience, emotional tone, visual world, main memorable object, and 3-5 content nodes.
+- Treat nodes as story material, not as the story itself.
+- Keep WebGL responsible for spatial memory, atmosphere, model/asset presentation, camera, and transitions.
+- Keep DOM responsible for readable copy, controls, navigation, detail panels, and publishing information.
+- Require proof for each node: cover, screenshot, model, link, video, or source artifact.
+- Include Film Mode as a director script even when recording/export is not requested yet.
+
+Evidence:
+
+- `prototypes/game-portfolio-story/` validates spatial nodes, detail layers, covers, Film Mode, and publishing notes.
+- `05-story-driven-3d-portfolio-framework.md` summarizes the bounded conclusion: our current demo is a 3D portfolio skeleton, while Samsy Ninja-style maturity depends on brand story, assets, camera direction, and visual identity.
+
+Reference file candidate:
+
+```text
+references/story-driven-portfolio.md
+```
+
 ### 3. Visual Problem Diagnosis
 
 Problem:

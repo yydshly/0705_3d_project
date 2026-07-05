@@ -167,6 +167,51 @@ http://127.0.0.1:5174/
 - `webgl-product-research/prototypes/scroll-product-story/README.md`
 - `webgl-product-research/prototypes/scroll-product-story/TEMPLATE_GUIDE.md`
 
+### 3. Samsy Ninja / Bruno Simon 启发：3D 作品集如何讲故事
+
+目录：
+
+```text
+webgl-product-research/prototypes/game-portfolio-story/
+webgl-product-research/05-story-driven-3d-portfolio-framework.md
+```
+
+这条线研究的是“3D 页面为什么不只是把模型放进网页，而是用空间讲故事”。
+
+我们当前的结论是：
+
+```text
+节点是素材
+故事是主线
+镜头是表达
+交互是参与
+资产是质感
+```
+
+`game-portfolio-story` 原型已经验证：
+
+- 内容可以变成 3D 空间节点；
+- 节点可以展开成详情层；
+- 右侧路径可以作为研究/作品导航；
+- Film Mode 可以成为导演脚本；
+- 节点封面、发布封面和发布说明可以被挂到同一个原型里。
+
+但它仍然只是“3D 作品集生成能力的骨架”，不是 Samsy Ninja 级别的高完成度作品。要继续接近成熟作品，关键不再是证明 3D 能不能跑，而是补：
+
+- 品牌故事；
+- 真实视觉资产；
+- 主视觉记忆点；
+- 更强镜头语言；
+- 每个节点的真实项目证明。
+
+重要入口：
+
+- `webgl-product-research/05-story-driven-3d-portfolio-framework.md`
+- `webgl-product-research/templates/story-driven-3d-website-input-brief.md`
+- `webgl-product-research/prototypes/game-portfolio-story/README.md`
+- `webgl-product-research/prototypes/game-portfolio-story/PUBLISHING.md`
+- `webgl-product-research/templates/game-like-portfolio-capability-checklist.md`
+
 ## 如何选择下一步
 
 如果你的目标是“发布一个视频”：
@@ -195,6 +240,17 @@ http://127.0.0.1:5174/
   -> 设计 4-6 个章节
   -> 添加 Film Mode
   -> 后续接录制、字幕、旁白、封面
+```
+
+如果你的目标是“以后生成 3D 个人作品集 / 品牌官网 / 产品空间展厅”：
+
+```text
+先读 webgl-product-research/05-story-driven-3d-portfolio-framework.md
+  -> 按 templates/story-driven-3d-website-input-brief.md 准备品牌、主视觉、3-5 个节点和素材
+  -> 选择 scroll-driven / free exploration / guided tour
+  -> 基于 game-portfolio-story 或 scroll-product-story 生成原型
+  -> 用 Film Mode 检查故事是否讲得通
+  -> 再替换真实资产和发布封面
 ```
 
 如果你的目标是“继续研究新项目”：
@@ -238,9 +294,9 @@ http://127.0.0.1:5174/
 
 短期先做三件事：
 
-1. 用 `cases/desktop-companion/` 验证模板是否能服务真实产品故事。
-2. 把 `prototypes/desktop-companion-story/` 继续推进成可观看、可录制的 3D 产品页。
-3. 再选择第三个项目，重点研究高质量 3D 作品集或真实产品展示页。
+1. 把 `webgl-product-film` skill 升级为“WebGL demo / 沉浸式官网 / 故事型 3D 作品集”都能处理的工作流。
+2. 基于 `05-story-driven-3d-portfolio-framework.md` 增加一个输入模板，让后续生成 3D 官网时不再从零沟通。
+3. 选择一个真实主题或产品，用 `game-portfolio-story` 的结构生成第一个真实资产版，而不是继续堆抽象节点。
 
 中期目标：
 

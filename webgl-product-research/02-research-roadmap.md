@@ -147,11 +147,12 @@ Success criteria:
 
 ## Immediate Next Step
 
-Continue `brunosimon/folio-2019` as the third research sample.
+Move from project research to reusable generation workflow.
 
 Recommended process:
 
-1. Finish the source-level analysis.
-2. Extract a reusable "game-like portfolio" capability checklist.
-3. Decide whether to create a minimal derivative prototype.
-4. Update `webgl-product-film` with bounded conclusions only after prototype/runtime evidence.
+1. Treat `prototypes/game-portfolio-story/` as enough evidence for the 3D portfolio skeleton.
+2. Use `05-story-driven-3d-portfolio-framework.md` as the summary of the Samsy Ninja-style lesson: story, identity, assets, interaction, and Film Mode.
+3. Add a reusable input brief for future 3D portfolio/product website generation.
+4. Upgrade `webgl-product-film` with bounded conclusions only from the evidence already collected.
+5. Test the workflow on a real project or brand, not another abstract research hub.

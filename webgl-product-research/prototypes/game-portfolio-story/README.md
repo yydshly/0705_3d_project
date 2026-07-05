@@ -63,6 +63,16 @@ This version moves closer to an immersive portfolio pattern inspired by sites li
 - Adds a detail focus stage for every node, so opening details changes both the UI and the 3D scene.
 - Keeps the project positioned as a research portfolio, not a clone of any specific website.
 
+## V1.3 Experience Polish
+
+This version reduces visual noise after screenshot review:
+
+- The center brand panel is lighter and works as a status layer instead of blocking the scene.
+- Detail panels now show summary first, with technical notes hidden behind an expand action.
+- The right-side research path highlights one focused node instead of mixing proximity and detail states.
+- 3D station boards use fewer small text lines; detailed explanation stays in the DOM panel.
+- The 3D detail focus stage uses short exhibit labels, while longer use-case text stays readable in the UI.
+
 ## Controls
 
 - `WASD` or arrow keys: move the rover.

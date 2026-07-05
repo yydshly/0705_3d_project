@@ -433,8 +433,8 @@ function StationCover({ station, active }) {
       <Text position={[0, 0.22, 0.11]} fontSize={0.18} maxWidth={2.25} anchorX="center" textAlign="center" color="#ffffff">
         {station.exhibit}
       </Text>
-      <Text position={[0, -0.16, 0.11]} fontSize={0.095} maxWidth={2.15} anchorX="center" textAlign="center" lineHeight={1.3} color="#e2e8f0">
-        {station.outcome}
+      <Text position={[0, -0.16, 0.11]} fontSize={0.1} maxWidth={2.15} anchorX="center" textAlign="center" lineHeight={1.25} color="#e2e8f0">
+        {station.tags.join(' / ')}
       </Text>
     </group>
   )
@@ -480,19 +480,8 @@ function Station({ station, active }) {
         >
           {station.title}
         </Text>
-        <Text
-          position={[0, -0.08, 0.13]}
-          fontSize={0.15}
-          maxWidth={3.15}
-          lineHeight={1.25}
-          textAlign="center"
-          anchorX="center"
-          color={station.accent}
-        >
-          {station.short}
-        </Text>
-        <Text position={[0, -0.68, 0.13]} fontSize={0.12} maxWidth={3.1} textAlign="center" color="#cbd5e1">
-          {station.tags.join(' / ')}
+        <Text position={[0, -0.18, 0.13]} fontSize={0.15} maxWidth={3.15} textAlign="center" anchorX="center" color={station.accent}>
+          {station.exhibit}
         </Text>
       </group>
       <StationInstallation station={station} active={active} />
@@ -554,7 +543,7 @@ function ExhibitFloor() {
   )
 }
 
-function ResearchWorld({ activeStation, setActiveStation, tourMode, onTourDone }) {
+function ResearchWorld({ activeStation, visualStationId, setActiveStation, tourMode, onTourDone }) {
   return (
     <>
       <color attach="background" args={['#070b13']} />
@@ -569,7 +558,7 @@ function ResearchWorld({ activeStation, setActiveStation, tourMode, onTourDone }
       <CentralHub />
       <PathLines />
       {stations.map((station) => (
-        <Station key={station.id} station={station} active={activeStation === station.id} />
+        <Station key={station.id} station={station} active={(visualStationId || activeStation) === station.id} />
       ))}
       <Rover
         activeStation={activeStation}
@@ -672,8 +661,8 @@ function DetailFocusStage({ stationId }) {
       <RoundedBox args={[3.1, 0.62, 0.14]} position={[0, 1.08, 0]} radius={0.07} smoothness={4}>
         <meshStandardMaterial color="#0f172a" emissive={station.color} emissiveIntensity={0.2} roughness={0.48} />
       </RoundedBox>
-      <Text position={[0, 1.12, 0.1]} fontSize={0.15} maxWidth={2.75} anchorX="center" textAlign="center" color="#f8fafc">
-        {station.useCase}
+      <Text position={[0, 1.12, 0.1]} fontSize={0.16} maxWidth={2.75} anchorX="center" textAlign="center" color="#f8fafc">
+        {station.exhibit}
       </Text>
       {[
         ['Outcome', -1.05],
@@ -766,15 +755,21 @@ function Interface({
   detailStationId,
   setDetailStationId
 }) {
+  const [expandedDetail, setExpandedDetail] = useState(false)
   const station = stations.find((item) => item.id === activeStation)
   const detailStation = stations.find((item) => item.id === detailStationId)
   const detail = detailStation?.detail
+  const focusedStationId = detailStationId || activeStation
+
+  useEffect(() => {
+    setExpandedDetail(false)
+  }, [detailStationId])
 
   return (
     <div className="interface">
       <header className="topbar">
         <div>
-          <p className="eyebrow">V1.2 Branded Showroom</p>
+          <p className="eyebrow">V1.3 Experience Polish</p>
           <h1>3D 能力研究作品集</h1>
         </div>
         <div className="actions">
@@ -786,16 +781,9 @@ function Interface({
       </header>
 
       <section className="brand-panel">
-        <p className="eyebrow">Inspired by immersive portfolio sites</p>
-        <h2>把技术研究变成可探索、可讲解、可复用的 3D 官网原型</h2>
-        <div>
-          {brandStats.map(([value, label]) => (
-            <span key={label}>
-              <strong>{value}</strong>
-              {label}
-            </span>
-          ))}
-        </div>
+        <p className="eyebrow">3D Capability Atlas</p>
+        <h2>{'源码研究 -> 原型验证 -> 视频化表达 -> Skill 沉淀'}</h2>
+        <div>{brandStats.map(([value, label]) => <span key={label}><strong>{value}</strong>{label}</span>)}</div>
       </section>
 
       <aside className="panel">
@@ -804,7 +792,10 @@ function Interface({
             <p className="panel-kicker">节点详情层</p>
             <h2>{detail.title}</h2>
             <p className="panel-subtitle">{detail.subtitle}</p>
-            <p>{detail.intro}</p>
+            <div className="outcome-box primary">
+              <strong>{detailStation.exhibit}</strong>
+              <span>{detailStation.outcome}</span>
+            </div>
             <div className="metric-grid">
               {detail.metrics.map((metric) => (
                 <div key={metric.label}>
@@ -813,17 +804,25 @@ function Interface({
                 </div>
               ))}
             </div>
-            <ul className="detail-list">
-              {detail.layers.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            {detailStation?.useCase && <p className="use-case">应用场景：{detailStation.useCase}</p>}
-            <div className="resource-list">
-              {detail.links.map((link) => (
-                <code key={link}>{link}</code>
-              ))}
-            </div>
+            <p className="use-case">应用场景：{detailStation.useCase}</p>
+            {expandedDetail && (
+              <>
+                <p>{detail.intro}</p>
+                <ul className="detail-list">
+                  {detail.layers.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <div className="resource-list">
+                  {detail.links.map((link) => (
+                    <code key={link}>{link}</code>
+                  ))}
+                </div>
+              </>
+            )}
+            <button className="secondary-button" onClick={() => setExpandedDetail((value) => !value)}>
+              {expandedDetail ? '收起详细说明' : '展开技术细节'}
+            </button>
             <button className="panel-button" onClick={() => setDetailStationId(null)}>
               返回主展厅
             </button>
@@ -869,7 +868,7 @@ function Interface({
         {stations.map((item, index) => (
           <button
             key={item.id}
-            className={activeStation === item.id || detailStationId === item.id ? 'journey-step active' : 'journey-step'}
+            className={focusedStationId === item.id ? 'journey-step active' : 'journey-step'}
             onClick={() => {
               setTourMode(false)
               setDetailStationId(item.detail ? item.id : null)
@@ -904,6 +903,7 @@ function App() {
   const [tourMode, setTourMode] = useState(false)
   const [resetSignal, setResetSignal] = useState(0)
   const [detailStationId, setDetailStationId] = useState(null)
+  const viewedStationId = detailStationId || activeStation
 
   return (
     <main>
@@ -912,6 +912,7 @@ function App() {
           <ResetBridge signal={resetSignal} />
           <ResearchWorld
             activeStation={activeStation}
+            visualStationId={viewedStationId}
             setActiveStation={setActiveStation}
             tourMode={tourMode}
             onTourDone={() => setTourMode(false)}

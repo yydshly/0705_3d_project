@@ -1,0 +1,20 @@
+{
+  "name": "soil-system-threejs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "audio:minimax": "node scripts/generate-system-film-audio.mjs",
+    "publish:film": "node scripts/publish-system-film.mjs",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lil-gui": "^0.20.0",
+    "three": "^0.185.0"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}

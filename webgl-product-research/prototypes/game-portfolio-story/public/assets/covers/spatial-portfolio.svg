@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0" stop-color="#281709"/>
+      <stop offset="0.5" stop-color="#51331d"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="420" rx="28" fill="url(#bg)"/>
+  <g fill="none" stroke="#ffd7aa" stroke-width="4" stroke-opacity="0.36">
+    <circle cx="190" cy="250" r="78"/>
+    <circle cx="382" cy="172" r="96"/>
+    <circle cx="555" cy="270" r="72"/>
+    <path d="M264 224 C315 192 350 190 414 208 S490 270 524 268"/>
+  </g>
+  <g fill="#f2a65a">
+    <rect x="160" y="222" width="62" height="44" rx="9"/>
+    <rect x="350" y="142" width="70" height="54" rx="9"/>
+    <rect x="526" y="244" width="58" height="42" rx="9"/>
+  </g>
+  <g fill="#ffd7aa">
+    <circle cx="190" cy="250" r="8"/>
+    <circle cx="385" cy="170" r="8"/>
+    <circle cx="555" cy="270" r="8"/>
+  </g>
+  <text x="42" y="70" fill="#fff7ed" font-family="Inter, Arial" font-size="34" font-weight="800">Spatial Portfolio</text>
+  <text x="44" y="110" fill="#ffd7aa" font-family="Inter, Arial" font-size="18">Projects become places: navigation, areas, triggers, memory</text>
+</svg>

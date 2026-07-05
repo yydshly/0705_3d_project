@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b1730"/>
+      <stop offset="0.55" stop-color="#15356d"/>
+      <stop offset="1" stop-color="#07111e"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="1">
+      <stop offset="0" stop-color="#4d8df7"/>
+      <stop offset="1" stop-color="#7dd3fc"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="420" rx="28" fill="url(#bg)"/>
+  <g fill="none" stroke="#b9d1ff" stroke-opacity="0.22">
+    <path d="M70 320 C160 120 302 350 430 150 S650 260 690 92"/>
+    <path d="M40 260 C170 145 294 260 390 92 S570 190 705 52"/>
+  </g>
+  <g transform="translate(96 118)">
+    <rect x="0" y="0" width="150" height="190" rx="16" fill="#0e1b34" stroke="#4d8df7"/>
+    <rect x="210" y="-42" width="150" height="220" rx="16" fill="#0e1b34" stroke="#4d8df7"/>
+    <rect x="420" y="28" width="150" height="160" rx="16" fill="#0e1b34" stroke="#4d8df7"/>
+    <rect x="22" y="30" width="106" height="18" rx="9" fill="url(#card)"/>
+    <rect x="232" y="0" width="106" height="18" rx="9" fill="url(#card)"/>
+    <rect x="442" y="58" width="106" height="18" rx="9" fill="url(#card)"/>
+    <rect x="22" y="70" width="86" height="10" rx="5" fill="#b9d1ff" opacity="0.62"/>
+    <rect x="232" y="42" width="86" height="10" rx="5" fill="#b9d1ff" opacity="0.62"/>
+    <rect x="442" y="100" width="86" height="10" rx="5" fill="#b9d1ff" opacity="0.62"/>
+  </g>
+  <path d="M585 86 l38 22 -38 22 z" fill="#7dd3fc"/>
+  <text x="42" y="70" fill="#eff6ff" font-family="Inter, Arial" font-size="34" font-weight="800">Scroll-driven Website</text>
+  <text x="44" y="110" fill="#b9d1ff" font-family="Inter, Arial" font-size="18">DOM sections synchronized with a WebGL camera timeline</text>
+</svg>

@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { ContactShadows, Float, Html, RoundedBox, Text } from '@react-three/drei'
+import { ContactShadows, Float, Html, RoundedBox, Text, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
 import './styles.css'
 
@@ -13,6 +13,7 @@ const stations = [
     exhibit: '自然场景生成',
     outcome: '把 GPU 草地系统包装成可发布的产品短片和技术说明。',
     useCase: '适合园林、游戏地形、数字孪生、自然产品展示。',
+    cover: '/assets/covers/grass-system.svg',
     position: [-9, 0, -3],
     color: '#7cb342',
     accent: '#d8f3a2',
@@ -48,6 +49,7 @@ const stations = [
     exhibit: '沉浸式官网',
     outcome: '把滚动条变成 3D 时间轴，让文字、模型和镜头同步推进。',
     useCase: '适合品牌官网、个人作品页、产品发布页、故事型落地页。',
+    cover: '/assets/covers/scroll-website.svg',
     position: [0, 0, -8],
     color: '#4d8df7',
     accent: '#b9d1ff',
@@ -83,6 +85,7 @@ const stations = [
     exhibit: '空间作品集',
     outcome: '把项目列表变成可探索空间，用移动和触发替代普通导航。',
     useCase: '适合个人作品集、线上展览、能力地图、教育导览。',
+    cover: '/assets/covers/spatial-portfolio.svg',
     position: [9, 0, -2],
     color: '#f2a65a',
     accent: '#ffd7aa',
@@ -118,6 +121,7 @@ const stations = [
     exhibit: '演示视频工厂',
     outcome: '把 WebGL 页面转成带字幕、旁白、封面和发布说明的视频资产。',
     useCase: '适合抖音、B 站、官网案例、产品演示、技术传播。',
+    cover: '/assets/covers/product-film.svg',
     position: [3, 0, 7],
     color: '#d65a7a',
     accent: '#ffc0cf',
@@ -153,6 +157,7 @@ const stations = [
     exhibit: '方法论资产',
     outcome: '把一次研究沉淀为下次能直接调用的工作流。',
     useCase: '适合持续研究开源项目、生成产品原型、复用视频化流程。',
+    cover: '/assets/covers/reusable-skill.svg',
     position: [-7, 0, 6],
     color: '#8b72e6',
     accent: '#d4c8ff',
@@ -188,6 +193,27 @@ const brandStats = [
   ['03', 'Research Samples'],
   ['05', 'Capability Nodes'],
   ['01', 'Reusable Workflow']
+]
+
+const filmScript = [
+  {
+    id: null,
+    kicker: 'Opening',
+    title: '3D Capability Atlas',
+    body: '先用空间看清楚研究路线：源码、原型、视频化和 Skill 沉淀。'
+  },
+  ...stations.map((station) => ({
+    id: station.id,
+    kicker: station.exhibit,
+    title: station.title,
+    body: station.outcome
+  })),
+  {
+    id: null,
+    kicker: 'Closing',
+    title: '从研究到可复用作品',
+    body: '这套结构后续可以替换为真实项目资产，生成个人作品集、产品官网和发布视频。'
+  }
 ]
 
 const tourPath = [
@@ -419,6 +445,8 @@ function StationInstallation({ station, active }) {
 }
 
 function StationCover({ station, active }) {
+  const texture = useTexture(station.cover)
+
   return (
     <group position={[0, 0.92, 1.65]} rotation={[-0.08, 0, 0]}>
       <RoundedBox args={[2.55, 1.1, 0.16]} radius={0.08} smoothness={4}>
@@ -430,11 +458,12 @@ function StationCover({ station, active }) {
           metalness={0.08}
         />
       </RoundedBox>
-      <Text position={[0, 0.22, 0.11]} fontSize={0.18} maxWidth={2.25} anchorX="center" textAlign="center" color="#ffffff">
+      <mesh position={[0, 0.05, 0.11]}>
+        <planeGeometry args={[2.34, 0.84]} />
+        <meshBasicMaterial map={texture} toneMapped={false} transparent opacity={active ? 1 : 0.72} />
+      </mesh>
+      <Text position={[0, -0.58, 0.15]} fontSize={0.13} maxWidth={2.25} anchorX="center" textAlign="center" color="#ffffff">
         {station.exhibit}
-      </Text>
-      <Text position={[0, -0.16, 0.11]} fontSize={0.1} maxWidth={2.15} anchorX="center" textAlign="center" lineHeight={1.25} color="#e2e8f0">
-        {station.tags.join(' / ')}
       </Text>
     </group>
   )
@@ -750,6 +779,9 @@ function Interface({
   activeStation,
   tourMode,
   setTourMode,
+  filmMode,
+  setFilmMode,
+  filmCue,
   resetSignal,
   setResetSignal,
   detailStationId,
@@ -773,6 +805,9 @@ function Interface({
           <h1>3D 能力研究作品集</h1>
         </div>
         <div className="actions">
+          <button className={filmMode ? 'active' : ''} onClick={() => setFilmMode((value) => !value)}>
+            {filmMode ? '停止影片' : 'Film Mode'}
+          </button>
           <button className={tourMode ? 'active' : ''} onClick={() => setTourMode((value) => !value)}>
             {tourMode ? '停止导览' : '自动导览'}
           </button>
@@ -786,6 +821,14 @@ function Interface({
         <div>{brandStats.map(([value, label]) => <span key={label}><strong>{value}</strong>{label}</span>)}</div>
       </section>
 
+      {filmMode && filmCue && (
+        <section className="film-cue">
+          <p className="eyebrow">{filmCue.kicker}</p>
+          <h2>{filmCue.title}</h2>
+          <p>{filmCue.body}</p>
+        </section>
+      )}
+
       <aside className="panel">
         {detail ? (
           <>
@@ -796,6 +839,7 @@ function Interface({
               <strong>{detailStation.exhibit}</strong>
               <span>{detailStation.outcome}</span>
             </div>
+            <img className="asset-preview" src={detailStation.cover} alt={`${detailStation.title} cover`} />
             <div className="metric-grid">
               {detail.metrics.map((metric) => (
                 <div key={metric.label}>
@@ -883,7 +927,7 @@ function Interface({
       <div className="controls">
         <span>WASD / 方向键移动</span>
         <span>{detail ? '详情层可承载子内容、资源和演示' : '靠近圆形展区触发说明'}</span>
-        <span>自动导览会按研究路径巡游</span>
+        <span>{filmMode ? 'Film Mode 正在按脚本讲解' : '自动导览会按研究路径巡游'}</span>
       </div>
     </div>
   )
@@ -901,9 +945,38 @@ function ResetBridge({ signal }) {
 function App() {
   const [activeStation, setActiveStation] = useState('overview')
   const [tourMode, setTourMode] = useState(false)
+  const [filmMode, setFilmMode] = useState(false)
+  const [filmIndex, setFilmIndex] = useState(0)
   const [resetSignal, setResetSignal] = useState(0)
   const [detailStationId, setDetailStationId] = useState(null)
   const viewedStationId = detailStationId || activeStation
+  const filmCue = filmScript[filmIndex]
+
+  useEffect(() => {
+    if (!filmMode) return undefined
+
+    setTourMode(true)
+    setFilmIndex(0)
+    setDetailStationId(null)
+
+    let nextIndex = 0
+    const interval = window.setInterval(() => {
+      nextIndex += 1
+      if (nextIndex >= filmScript.length) {
+        window.clearInterval(interval)
+        setFilmMode(false)
+        setTourMode(false)
+        setDetailStationId(null)
+        setFilmIndex(0)
+        return
+      }
+
+      setFilmIndex(nextIndex)
+      setDetailStationId(filmScript[nextIndex].id)
+    }, 4200)
+
+    return () => window.clearInterval(interval)
+  }, [filmMode])
 
   return (
     <main>
@@ -925,6 +998,9 @@ function App() {
         activeStation={activeStation}
         tourMode={tourMode}
         setTourMode={setTourMode}
+        filmMode={filmMode}
+        setFilmMode={setFilmMode}
+        filmCue={filmCue}
         resetSignal={resetSignal}
         setResetSignal={setResetSignal}
         detailStationId={detailStationId}

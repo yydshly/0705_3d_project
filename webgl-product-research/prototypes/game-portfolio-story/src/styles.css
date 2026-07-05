@@ -140,6 +140,35 @@ h1 {
   font-size: 15px;
 }
 
+.film-cue {
+  background: rgba(3, 7, 18, 0.72);
+  border: 1px solid rgba(128, 255, 216, 0.24);
+  border-radius: 8px;
+  bottom: 74px;
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.34);
+  left: 50%;
+  max-width: 600px;
+  padding: 15px 18px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  width: min(600px, calc(100vw - 48px));
+}
+
+.film-cue h2 {
+  color: #f8fafc;
+  font-size: 22px;
+  line-height: 1.22;
+  margin: 0 0 8px;
+}
+
+.film-cue p:last-child {
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
 .actions {
   display: flex;
   gap: 10px;
@@ -226,6 +255,16 @@ h1 {
 .outcome-box.primary {
   border-color: rgba(128, 255, 216, 0.34);
   margin-top: 0;
+}
+
+.asset-preview {
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(128, 255, 216, 0.22);
+  border-radius: 8px;
+  display: block;
+  margin-top: 12px;
+  object-fit: cover;
+  width: 100%;
 }
 
 .outcome-box strong {
@@ -401,6 +440,15 @@ h1 {
 
   .brand-panel {
     display: none;
+  }
+
+  .film-cue {
+    bottom: 110px;
+    padding: 12px 14px;
+  }
+
+  .film-cue h2 {
+    font-size: 18px;
   }
 
   .panel h2 {

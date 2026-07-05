@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#351121"/>
+      <stop offset="0.55" stop-color="#6d243e"/>
+      <stop offset="1" stop-color="#0d1220"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="420" rx="28" fill="url(#bg)"/>
+  <g transform="translate(110 130)">
+    <rect x="0" y="0" width="500" height="178" rx="22" fill="#120816" stroke="#ffc0cf" stroke-opacity="0.55"/>
+    <rect x="38" y="34" width="138" height="84" rx="12" fill="#d65a7a"/>
+    <rect x="198" y="34" width="138" height="84" rx="12" fill="#432132"/>
+    <rect x="358" y="34" width="104" height="84" rx="12" fill="#432132"/>
+    <circle cx="107" cy="76" r="22" fill="#fff1f2"/>
+    <path d="M102 62 l32 17 -32 17 z" fill="#d65a7a"/>
+    <rect x="42" y="138" width="420" height="10" rx="5" fill="#ffc0cf" opacity="0.58"/>
+  </g>
+  <g fill="#ffc0cf" opacity="0.7">
+    <rect x="80" y="330" width="80" height="8" rx="4"/>
+    <rect x="180" y="330" width="155" height="8" rx="4"/>
+    <rect x="355" y="330" width="240" height="8" rx="4"/>
+  </g>
+  <text x="42" y="70" fill="#fff1f2" font-family="Inter, Arial" font-size="34" font-weight="800">Product Film Mode</text>
+  <text x="44" y="110" fill="#ffc0cf" font-family="Inter, Arial" font-size="18">Camera direction / captions / voiceover / publish package</text>
+</svg>

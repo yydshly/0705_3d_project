@@ -73,9 +73,25 @@ This version reduces visual noise after screenshot review:
 - 3D station boards use fewer small text lines; detailed explanation stays in the DOM panel.
 - The 3D detail focus stage uses short exhibit labels, while longer use-case text stays readable in the UI.
 
+## V1.4 Publishing Package
+
+This version adds the first publishable asset layer:
+
+- Local SVG cover assets for every capability node.
+- A poster image for README, social sharing, or video covers.
+- `Film Mode`, which automatically walks through the research story.
+- A separate `PUBLISHING.md` guide for preview, recording, and asset replacement.
+
+Assets live in:
+
+```text
+public/assets/covers/
+```
+
 ## Controls
 
 - `WASD` or arrow keys: move the rover.
+- `Film Mode`: play the guided publishing story.
 - `自动导览`: let the rover travel through the research stations.
 - `进入节点详情`: available when the rover is near a research station.
 - Right-side research path: open a station detail layer directly.
@@ -109,3 +125,4 @@ See:
 
 - `../../analyses/2026-07-05-bruno-simon-folio-2019.md`
 - `../../templates/game-like-portfolio-capability-checklist.md`
+- `PUBLISHING.md`

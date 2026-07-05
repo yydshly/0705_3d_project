@@ -43,19 +43,36 @@ http://127.0.0.1:5178/
 - How a future product showroom could combine free exploration with a directed film mode.
 - How a station can open a second-level detail layer with technical notes, resource links, and a focused 3D mini demo.
 
+## V1.1 Showcase Upgrade
+
+This version moves the prototype from a rough movement test toward a readable research showroom:
+
+- Five research nodes now have real second-level detail content.
+- Each node has a distinct 3D mini installation so the space is easier to read visually.
+- The central hub explains the research pipeline: repo -> prototype -> film -> skill.
+- The guided tour moves more slowly and pauses near stations to feel more like a walkthrough.
+- The right-side research path can open each node directly for faster review.
+
 ## Controls
 
 - `WASD` or arrow keys: move the rover.
 - `自动导览`: let the rover travel through the research stations.
-- `进入节点详情`: available when the rover is near the Shader grass station.
+- `进入节点详情`: available when the rover is near a research station.
+- Right-side research path: open a station detail layer directly.
 - `返回主展厅`: close the second-level detail layer.
 - `重置观察`: reset camera framing.
 
 ## Current Deep Node
 
-The first deep node is `Shader 草地系统`.
+All five nodes now support a detail layer:
 
-It validates this structure:
+- `Shader 草地系统`
+- `滚动驱动 3D 官网`
+- `游戏化空间作品集`
+- `产品展示视频化`
+- `可复用 Skill`
+
+They validate this structure:
 
 ```text
 main 3D hub

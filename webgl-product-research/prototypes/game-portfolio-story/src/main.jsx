@@ -46,7 +46,29 @@ const stations = [
     color: '#4d8df7',
     accent: '#b9d1ff',
     body: '把网页滚动进度变成 3D 状态控制器：章节、镜头、模型变化、文字说明同时推进。',
-    tags: ['Scroll', 'R3F', 'Website']
+    tags: ['Scroll', 'R3F', 'Website'],
+    detail: {
+      title: '滚动 3D 官网详情层',
+      subtitle: '把传统页面滚动变成镜头、模型和章节的统一时间轴。',
+      intro:
+        '这一层说明 r3f-scroll-rig 类项目给我们的启发：DOM 仍然负责文本和排版，WebGL 负责空间、材质和镜头，滚动进度成为两者同步的控制器。',
+      metrics: [
+        { label: '页面层', value: 'DOM Sections' },
+        { label: '空间层', value: 'R3F Scene' },
+        { label: '同步轴', value: 'Scroll Progress' }
+      ],
+      layers: [
+        '页面内容不是消失，而是变成 3D 镜头推进的章节脚本',
+        '模型位置、透明度、旋转、材质变化都可以被滚动进度驱动',
+        '适合官网、个人作品集、产品故事页和技术解释型页面',
+        '关键风险是节奏过载：文字、镜头和模型变化必须有主次'
+      ],
+      links: [
+        'webgl-product-research/prototypes/r3f-scroll-rig-study/',
+        'IMMERSIVE_WEBSITE_CAPABILITY_NOTES.md',
+        'README.md#research-map'
+      ]
+    }
   },
   {
     id: 'spatial',
@@ -56,7 +78,29 @@ const stations = [
     color: '#f2a65a',
     accent: '#ffd7aa',
     body: '把作品集从卡片列表改造成可以进入的空间。用户不是翻页面，而是在展厅里移动、靠近、触发。',
-    tags: ['World', 'Vehicle', 'Area']
+    tags: ['World', 'Vehicle', 'Area'],
+    detail: {
+      title: '空间作品集详情层',
+      subtitle: '把项目列表改造成可以探索的空间地图。',
+      intro:
+        '这一层对应 Bruno Simon Folio 这类作品的核心价值：作品不再只是内容块，而是空间里的可达地点。移动、碰撞、触发、镜头跟随共同形成记忆点。',
+      metrics: [
+        { label: '组织方式', value: 'World Map' },
+        { label: '输入方式', value: 'WASD / Touch' },
+        { label: '触发方式', value: 'Area Trigger' }
+      ],
+      layers: [
+        '用路线和空间距离表达信息层级，而不是只靠导航菜单',
+        '用可控制角色或载具增强参与感，但不能盖过内容本身',
+        '每个节点可以继续展开为项目页、视频、代码、说明或购买入口',
+        '适合个人作品集、品牌活动页、展览导览和产品能力地图'
+      ],
+      links: [
+        'webgl-product-research/projects/folio-2019/',
+        'game-like-portfolio-capability-checklist.md',
+        'src/main.jsx'
+      ]
+    }
   },
   {
     id: 'product',
@@ -66,7 +110,29 @@ const stations = [
     color: '#d65a7a',
     accent: '#ffc0cf',
     body: '把互动页面进一步变成可录制的产品影片：自动导览、重点镜头、字幕旁白和发布素材。',
-    tags: ['Camera', 'Voice', 'Publish']
+    tags: ['Camera', 'Voice', 'Publish'],
+    detail: {
+      title: '产品视频化详情层',
+      subtitle: '把可交互场景转成可发布、可讲解、可复用的视频资产。',
+      intro:
+        '这一层沉淀 GrassSystemThreeJS 视频化过程：不是把页面快速录下来，而是用导演节奏安排远景、近景、转场、字幕、旁白、音乐和封面。',
+      metrics: [
+        { label: '镜头', value: 'Wide / Close' },
+        { label: '音频', value: 'Voice + Music' },
+        { label: '发布', value: 'MP4 + Cover' }
+      ],
+      layers: [
+        '先确定故事：从无到有、参数变化、能力展示、最终成片',
+        '镜头运动要服务理解，避免全程前推或无意义旋转',
+        '字幕和旁白解释技术价值，背景音乐只托氛围不抢内容',
+        '最终产物包括 WebM、MP4、封面、字幕、发布说明和源码入口'
+      ],
+      links: [
+        'GrassSystemThreeJS-demo/outputs/',
+        'system-film-share-package.md',
+        'webgl-product-film/SKILL.md'
+      ]
+    }
   },
   {
     id: 'skill',
@@ -76,9 +142,33 @@ const stations = [
     color: '#8b72e6',
     accent: '#d4c8ff',
     body: '每个研究样本都必须形成证据链：源码证据、运行证据、边界结论、可复用流程。',
-    tags: ['Workflow', 'Evidence', 'Reuse']
+    tags: ['Workflow', 'Evidence', 'Reuse'],
+    detail: {
+      title: '可复用 Skill 详情层',
+      subtitle: '把一次探索沉淀为下次能直接调用的工作流。',
+      intro:
+        '这一层强调我们做技术研究的最终目的：不是收藏项目，而是把“如何分析、如何原型、如何视频化、如何文档化”变成可复用能力。',
+      metrics: [
+        { label: '输入', value: 'Repo / Idea' },
+        { label: '过程', value: 'Evidence Chain' },
+        { label: '输出', value: 'Demo + Docs' }
+      ],
+      layers: [
+        '先看源码和运行证据，再下结论，避免纯理论更新 skill',
+        '每个样本都要区分底层能力、展示手法和可迁移场景',
+        '原型必须隔离目录，避免研究样本互相污染',
+        '后续可以服务官网、产品视频、交互作品集和生活场景演示'
+      ],
+      links: [
+        'C:/Users/yun68/.codex/skills/webgl-product-film/SKILL.md',
+        'webgl-product-research/README.md',
+        'docs/research-roadmap.md'
+      ]
+    }
   }
 ]
+
+const overviewTags = ['Research Map', '3D Navigation', 'Reusable Skill']
 
 const tourPath = [
   new THREE.Vector3(-10, 0, -3),
@@ -110,15 +200,17 @@ function useKeyboard() {
   return keys
 }
 
-function FollowCamera({ target }) {
+function FollowCamera({ target, tourMode }) {
   const { camera } = useThree()
   const desired = useMemo(() => new THREE.Vector3(), [])
   const lookAt = useMemo(() => new THREE.Vector3(), [])
 
   useFrame(() => {
-    desired.set(target.current.x + 7.5, target.current.y + 9, target.current.z + 9.5)
-    camera.position.lerp(desired, 0.065)
-    lookAt.set(target.current.x, 0.8, target.current.z)
+    const distance = tourMode ? 10.6 : 8.8
+    const height = tourMode ? 10.4 : 9
+    desired.set(target.current.x + distance * 0.72, target.current.y + height, target.current.z + distance)
+    camera.position.lerp(desired, tourMode ? 0.045 : 0.065)
+    lookAt.set(target.current.x, tourMode ? 1.1 : 0.8, target.current.z)
     camera.lookAt(lookAt)
   })
 
@@ -133,6 +225,7 @@ function Rover({ activeStation, setActiveStation, tourMode, onTourDone }) {
   const velocity = useRef(new THREE.Vector3())
   const angle = useRef(0)
   const tourIndex = useRef(0)
+  const tourHold = useRef(0)
   const targetRef = useRef(new THREE.Vector3(0, 0, 0))
 
   useFrame((_, delta) => {
@@ -141,19 +234,25 @@ function Rover({ activeStation, setActiveStation, tourMode, onTourDone }) {
 
     if (tourMode) {
       const target = tourPath[tourIndex.current]
-      dir.subVectors(target, position.current)
-      dir.y = 0
-      if (dir.length() < 0.35) {
-        tourIndex.current += 1
-        if (tourIndex.current >= tourPath.length) {
-          tourIndex.current = 0
-          onTourDone()
-        }
+      if (tourHold.current > 0) {
+        tourHold.current -= delta
       } else {
-        dir.normalize()
+        dir.subVectors(target, position.current)
+        dir.y = 0
+        if (dir.length() < 0.35) {
+          tourIndex.current += 1
+          tourHold.current = tourIndex.current === tourPath.length ? 0.4 : 1.15
+          if (tourIndex.current >= tourPath.length) {
+            tourIndex.current = 0
+            onTourDone()
+          }
+        } else {
+          dir.normalize()
+        }
       }
     } else {
       tourIndex.current = 0
+      tourHold.current = 0
       if (pressed.KeyW || pressed.ArrowUp) dir.z -= 1
       if (pressed.KeyS || pressed.ArrowDown) dir.z += 1
       if (pressed.KeyA || pressed.ArrowLeft) dir.x -= 1
@@ -161,7 +260,7 @@ function Rover({ activeStation, setActiveStation, tourMode, onTourDone }) {
       if (dir.length() > 0) dir.normalize()
     }
 
-    const targetSpeed = tourMode ? 4 : 5.5
+    const targetSpeed = tourMode ? 3.25 : 5.5
     const desiredVelocity = dir.multiplyScalar(targetSpeed)
     velocity.current.lerp(desiredVelocity, 0.12)
     position.current.addScaledVector(velocity.current, delta)
@@ -192,7 +291,7 @@ function Rover({ activeStation, setActiveStation, tourMode, onTourDone }) {
 
   return (
     <>
-      <FollowCamera target={position} />
+      <FollowCamera target={position} tourMode={tourMode} />
       <group ref={group} position={[0, 0, 0]}>
         <group position={[0, 0.36, 0]}>
           <RoundedBox args={[1.4, 0.48, 2.05]} radius={0.12} smoothness={6}>
@@ -217,6 +316,85 @@ function Rover({ activeStation, setActiveStation, tourMode, onTourDone }) {
         <pointLight color="#8ef7ff" intensity={1.6} distance={5} position={[0, 1.6, 0]} />
       </group>
     </>
+  )
+}
+
+function StationInstallation({ station, active }) {
+  if (station.id === 'grass') {
+    return (
+      <group position={[0, 0.08, -1.25]}>
+        {Array.from({ length: 18 }, (_, index) => {
+          const x = (index % 6) * 0.22 - 0.55
+          const z = Math.floor(index / 6) * 0.22 - 0.22
+          const height = 0.28 + (index % 4) * 0.08
+          return (
+            <mesh key={index} position={[x, height * 0.5, z]} rotation={[0, index * 0.41, active ? 0.12 : 0.03]}>
+              <boxGeometry args={[0.035, height, 0.05]} />
+              <meshStandardMaterial color={index % 2 ? '#b7ef7a' : '#7cc75a'} roughness={0.8} />
+            </mesh>
+          )
+        })}
+      </group>
+    )
+  }
+
+  if (station.id === 'scroll') {
+    return (
+      <group position={[0, 0.48, -1.22]}>
+        {[0, 1, 2].map((index) => (
+          <RoundedBox key={index} args={[0.76, 0.48, 0.08]} position={[index * 0.46 - 0.46, index * 0.22, 0]} radius={0.04}>
+            <meshStandardMaterial color={index === 1 ? '#4d8df7' : '#17233a'} emissive="#244b8f" emissiveIntensity={active ? 0.3 : 0.12} />
+          </RoundedBox>
+        ))}
+        <mesh position={[0.6, 0.48, 0.05]} rotation={[0, 0, -0.5]}>
+          <coneGeometry args={[0.12, 0.45, 3]} />
+          <meshStandardMaterial color="#b9d1ff" emissive="#4d8df7" emissiveIntensity={active ? 0.7 : 0.25} />
+        </mesh>
+      </group>
+    )
+  }
+
+  if (station.id === 'spatial') {
+    return (
+      <group position={[0, 0.12, -1.18]}>
+        <mesh rotation={[-Math.PI / 2, 0, 0]}>
+          <ringGeometry args={[0.62, 0.72, 48]} />
+          <meshBasicMaterial color="#ffd7aa" transparent opacity={active ? 0.9 : 0.45} />
+        </mesh>
+        <RoundedBox args={[0.55, 0.24, 0.78]} position={[0, 0.22, 0]} radius={0.06}>
+          <meshStandardMaterial color="#f2a65a" roughness={0.5} />
+        </RoundedBox>
+      </group>
+    )
+  }
+
+  if (station.id === 'product') {
+    return (
+      <group position={[0, 0.55, -1.2]}>
+        {[-0.42, 0, 0.42].map((x, index) => (
+          <RoundedBox key={x} args={[0.32, 0.58, 0.08]} position={[x, index * 0.08, 0]} radius={0.04}>
+            <meshStandardMaterial color={index === 1 ? '#d65a7a' : '#2a1520'} emissive="#d65a7a" emissiveIntensity={active ? 0.42 : 0.16} />
+          </RoundedBox>
+        ))}
+        <Text position={[0, -0.52, 0.08]} fontSize={0.13} anchorX="center" color="#ffc0cf">
+          FILM
+        </Text>
+      </group>
+    )
+  }
+
+  return (
+    <group position={[0, 0.56, -1.18]}>
+      {[0, 1, 2].map((index) => (
+        <mesh key={index} position={[index * 0.36 - 0.36, index * 0.18, 0]} rotation={[0.3, 0.3, 0.4]}>
+          <boxGeometry args={[0.28, 0.28, 0.28]} />
+          <meshStandardMaterial color={index === 1 ? '#8b72e6' : '#221b3f'} emissive="#8b72e6" emissiveIntensity={active ? 0.45 : 0.15} />
+        </mesh>
+      ))}
+      <Text position={[0, -0.5, 0.08]} fontSize={0.12} anchorX="center" color="#d4c8ff">
+        SKILL
+      </Text>
+    </group>
   )
 }
 
@@ -275,6 +453,7 @@ function Station({ station, active }) {
           {station.tags.join(' / ')}
         </Text>
       </group>
+      <StationInstallation station={station} active={active} />
       <Float speed={active ? 2.1 : 1.1} floatIntensity={active ? 0.32 : 0.12}>
         <mesh position={[0, 3.1, 0]}>
           <octahedronGeometry args={[0.45, 0]} />
@@ -285,20 +464,65 @@ function Station({ station, active }) {
   )
 }
 
+function Atmosphere() {
+  const points = useMemo(() => {
+    const values = []
+    for (let index = 0; index < 140; index += 1) {
+      const radius = 10 + Math.random() * 16
+      const angle = Math.random() * Math.PI * 2
+      values.push(Math.cos(angle) * radius, 3 + Math.random() * 7, Math.sin(angle) * radius)
+    }
+    return new Float32Array(values)
+  }, [])
+
+  return (
+    <points>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" count={points.length / 3} array={points} itemSize={3} />
+      </bufferGeometry>
+      <pointsMaterial color="#9fb7d9" size={0.055} transparent opacity={0.52} sizeAttenuation />
+    </points>
+  )
+}
+
+function ExhibitFloor() {
+  return (
+    <>
+      <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[34, 28, 1, 1]} />
+        <meshStandardMaterial color="#111a2a" roughness={0.9} metalness={0.04} />
+      </mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.018, 0]}>
+        <circleGeometry args={[13.6, 128]} />
+        <meshStandardMaterial color="#172235" roughness={0.86} metalness={0.07} transparent opacity={0.84} />
+      </mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.026, 0]}>
+        <ringGeometry args={[3.2, 13.2, 160]} />
+        <meshBasicMaterial color="#31435f" transparent opacity={0.36} />
+      </mesh>
+      <gridHelper args={[30, 30, '#41536e', '#263244']} position={[0, 0.035, 0]} />
+      {stations.map((station) => (
+        <mesh key={station.id} rotation={[-Math.PI / 2, 0, 0]} position={[station.position[0], 0.032, station.position[2]]}>
+          <ringGeometry args={[2.9, 3.05, 96]} />
+          <meshBasicMaterial color={station.accent} transparent opacity={0.26} />
+        </mesh>
+      ))}
+    </>
+  )
+}
+
 function ResearchWorld({ activeStation, setActiveStation, tourMode, onTourDone }) {
   return (
     <>
-      <color attach="background" args={['#0a0f1b']} />
-      <fog attach="fog" args={['#0a0f1b', 16, 35]} />
-      <ambientLight intensity={0.72} />
-      <directionalLight position={[8, 12, 8]} intensity={2.2} castShadow shadow-mapSize={[2048, 2048]} />
+      <color attach="background" args={['#070b13']} />
+      <fog attach="fog" args={['#070b13', 17, 42]} />
+      <ambientLight intensity={0.62} />
+      <hemisphereLight color="#c7ddff" groundColor="#111827" intensity={0.52} />
+      <directionalLight position={[8, 12, 8]} intensity={2.35} castShadow shadow-mapSize={[2048, 2048]} />
       <pointLight position={[-9, 3, -6]} color="#87ff9f" intensity={3} distance={11} />
       <pointLight position={[9, 3, -4]} color="#ffb46b" intensity={2.5} distance={11} />
-      <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[32, 26, 1, 1]} />
-        <meshStandardMaterial color="#1b2638" roughness={0.86} metalness={0.05} />
-      </mesh>
-      <gridHelper args={[30, 30, '#38485f', '#263244']} position={[0, 0.012, 0]} />
+      <Atmosphere />
+      <ExhibitFloor />
       <CentralHub />
       <PathLines />
       {stations.map((station) => (
@@ -389,10 +613,17 @@ function CentralHub() {
     <group position={[0, 0, 0]}>
       <mesh rotation={[-Math.PI / 2, 0, 0]}>
         <circleGeometry args={[2.8, 72]} />
-        <meshStandardMaterial color="#24314a" emissive="#182238" emissiveIntensity={0.25} />
+        <meshStandardMaterial color="#24314a" emissive="#182238" emissiveIntensity={0.38} roughness={0.62} />
+      </mesh>
+      <mesh position={[0, 0.08, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[2.95, 3.08, 96]} />
+        <meshBasicMaterial color="#80ffd8" transparent opacity={0.55} />
       </mesh>
       <Text position={[0, 0.08, 0]} rotation={[-Math.PI / 2, 0, 0]} fontSize={0.38} color="#dbeafe" anchorX="center">
         3D Research Hub
+      </Text>
+      <Text position={[0, 0.1, 0.8]} rotation={[-Math.PI / 2, 0, 0]} fontSize={0.16} color="#93c5fd" anchorX="center">
+        {'repo -> prototype -> film -> skill'}
       </Text>
     </group>
   )
@@ -447,6 +678,7 @@ function Interface({
           <>
             <p className="panel-kicker">节点详情层</p>
             <h2>{detail.title}</h2>
+            <p className="panel-subtitle">{detail.subtitle}</p>
             <p>{detail.intro}</p>
             <div className="metric-grid">
               {detail.metrics.map((metric) => (
@@ -474,13 +706,14 @@ function Interface({
           <>
             <p className="panel-kicker">{station ? '当前展区' : '空间总览'}</p>
             <h2>{station ? station.title : '用空间组织能力，而不是只放模型'}</h2>
+            {!station && <p className="panel-subtitle">一个 WebGL / Three.js 研究路线图：源码样本、原型验证、视频化表达、Skill 沉淀。</p>}
             <p>
               {station
                 ? station.body
                 : '驾驶小车靠近不同展区，观察 3D 展板、区域触发、相机跟随和自动导览如何组成一个可探索作品集。'}
             </p>
             <div className="tags">
-              {(station ? station.tags : ['WASD', 'Camera Follow', 'Interaction Area']).map((tag) => (
+              {(station ? station.tags : overviewTags).map((tag) => (
                 <span key={tag}>{tag}</span>
               ))}
             </div>
@@ -497,6 +730,23 @@ function Interface({
             )}
           </>
         )}
+      </aside>
+
+      <aside className="journey">
+        <p className="panel-kicker">研究路径</p>
+        {stations.map((item, index) => (
+          <button
+            key={item.id}
+            className={activeStation === item.id || detailStationId === item.id ? 'journey-step active' : 'journey-step'}
+            onClick={() => {
+              setTourMode(false)
+              setDetailStationId(item.detail ? item.id : null)
+            }}
+          >
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <strong>{item.title}</strong>
+          </button>
+        ))}
       </aside>
 
       <div className="controls">

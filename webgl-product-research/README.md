@@ -21,6 +21,16 @@ That document explains why this research exists, how it connects to `GrassSystem
 3. Which parts should be added to our `webgl-product-film` skill?
 4. Which parts can become our own product features?
 
+## Quick Project Probe
+
+Before deep analysis, the `webgl-product-film` skill includes a lightweight static probe:
+
+```powershell
+node C:\Users\yun68\.codex\skills\webgl-product-film\scripts\probe-threejs-project.mjs <project-root>
+```
+
+Use it to quickly inspect entry files, scripts, dependencies, shaders, models, textures, and likely Three.js / R3F structure. Treat this as a starting scan only; conclusions still need source evidence and runtime or prototype evidence.
+
 ## Research Layers
 
 - Immersive website and portfolio: scroll-linked 3D, DOM/WebGL synchronization, storytelling.

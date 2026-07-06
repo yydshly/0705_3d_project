@@ -118,6 +118,44 @@ C:\Users\yun68\.codex\skills\webgl-product-film
 4. 生成文档、模板、字幕、旁白、封面、发布说明；
 5. 将经过验证的模式沉淀成后续可复用流程。
 
+## Project Probe
+
+我们已经有一个轻量探测脚本，用来快速扫描 Three.js / WebGL 项目的结构：
+
+```text
+C:\Users\yun68\.codex\skills\webgl-product-film\scripts\probe-threejs-project.mjs
+```
+
+使用方式：
+
+```powershell
+node C:\Users\yun68\.codex\skills\webgl-product-film\scripts\probe-threejs-project.mjs <project-root>
+```
+
+例如：
+
+```powershell
+node C:\Users\yun68\.codex\skills\webgl-product-film\scripts\probe-threejs-project.mjs D:\claude_code\20260704_opendesign\GrassSystemThreeJS-demo
+```
+
+它适合在正式分析前快速查看：
+
+- 项目入口文件；
+- Three.js / R3F / WebGL 相关依赖；
+- 可能的 shader、模型、纹理、场景文件；
+- 构建脚本和运行脚本；
+- 是否值得进入更深入的能力分析。
+
+注意：探测脚本只是第一步，不能替代源码阅读、运行验证和视觉判断。正确流程仍然是：
+
+```text
+probe
+  -> source evidence
+  -> runtime / prototype evidence
+  -> bounded conclusion
+  -> docs / template / skill update
+```
+
 ## Evidence Rule
 
 不要只靠理论更新 skill。

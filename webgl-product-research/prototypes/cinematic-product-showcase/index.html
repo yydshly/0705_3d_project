@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A cinematic Three.js product showcase prototype for launch-page style product animation."
+    />
+    <title>Cinematic Product Showcase</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <main class="showcase-shell">
+      <canvas id="scene-canvas" aria-label="3D cinematic product showcase"></canvas>
+
+      <section class="story-panel" aria-live="polite">
+        <p class="eyebrow">CINEMATIC PRODUCT SHOWCASE</p>
+        <h1>AuraPods Pro</h1>
+        <p class="lead">
+          一个用于验证发布级产品动画的耳机概念：镜头导演、部件拆分、声波可视化、能量流和最终英雄镜头。
+        </p>
+
+        <div class="chapter-card">
+          <span id="chapter-index">01</span>
+          <div>
+            <h2 id="chapter-title">产品入场</h2>
+            <p id="chapter-copy">
+              产品从暗场进入，先建立轮廓和高级感。这一步证明它不是普通 3D 查看器，而是有时间线的产品影片。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="capability-panel">
+        <p class="eyebrow">PROVES</p>
+        <ul>
+          <li data-step="entrance">产品入场</li>
+          <li data-step="hero">导演镜头</li>
+          <li data-step="waves">功能可视化</li>
+          <li data-step="explode">部件拆分</li>
+          <li data-step="energy">能量流</li>
+          <li data-step="finish">最终英雄镜头</li>
+        </ul>
+      </aside>
+
+      <section class="timeline-panel" aria-label="Timeline controls">
+        <button class="primary-button" type="button" id="play-toggle">暂停</button>
+        <input id="timeline" type="range" min="0" max="1000" value="0" aria-label="Animation progress" />
+        <button type="button" id="explode-toggle">拆分视图</button>
+        <button type="button" id="reset-button">重播</button>
+      </section>
+    </main>
+  </body>
+</html>

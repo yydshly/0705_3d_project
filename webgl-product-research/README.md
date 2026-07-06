@@ -94,6 +94,7 @@ story-driven 3D portfolio generation
 - `prototypes/desktop-companion-story/`: isolated real-case prototype derived from `scroll-product-story`, focused on a warm desktop AI companion product story.
 - `prototypes/game-portfolio-story/`: third derivative prototype inspired by `brunosimon/folio-2019` and Samsy Ninja-style immersive portfolios. It now validates spatial nodes, detail layers, replaceable covers, Film Mode, and a lightweight publishing package.
 - `prototypes/product-viewer-story/`: practical product viewer prototype using `@google/model-viewer`, focused on one inspectable GLB object, hotspots, camera views, material tone controls, AR affordance, and a reusable template guide.
+- `prototypes/cinematic-product-showcase/`: first cinematic product-animation prototype using Three.js, focused on product entrance, directed camera motion, feature visualization, exploded view, energy particles, and final hero framing.
 
 ## Current Next Step
 
@@ -109,6 +110,6 @@ Recommended work:
 
 1. Read `07-current-stage-handoff.md` to understand what is already stable and what is not solved.
 2. Treat `prototypes/product-viewer-story/` as the practical product-inspection branch, not the cinematic animation branch.
-3. Start the next isolated prototype only when the goal is clear: `prototypes/cinematic-product-showcase/`.
+3. Continue the isolated `prototypes/cinematic-product-showcase/` branch only when the goal is launch-page style product animation.
 4. Use that next branch to study earphone-style product entrance, exploded views, authored camera motion, feature visualization, and final hero shots.
 5. Reconnect recording/export only after the cinematic scene has a convincing timeline.

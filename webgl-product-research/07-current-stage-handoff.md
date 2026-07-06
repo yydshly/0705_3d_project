@@ -85,6 +85,13 @@ Suggested location:
 webgl-product-research/prototypes/cinematic-product-showcase/
 ```
 
+Current status:
+
+```text
+Started as a first procedural Three.js prototype.
+It validates the animation pattern before introducing real product assets.
+```
+
 ## Input Needed For A Real Product
 
 For a real product, ask for:

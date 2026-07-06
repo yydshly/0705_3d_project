@@ -70,6 +70,7 @@ story-driven 3D portfolio generation
 - `05-story-driven-3d-portfolio-framework.md`: summary of what Samsy Ninja-style sites teach us, what our prototype validates, and what input future 3D website generation needs.
 - `06-research-case-matrix.md`: current case coverage, missing capability areas, and the next research sequence for maturing the skill.
 - `07-current-stage-handoff.md`: current-stage closeout, stable capabilities, unsolved gaps, and the recommended next move toward cinematic product showcases.
+- `08-mainline-return.md`: decision record for stopping abstract demo expansion and returning to real product / real asset / real brand cases.
 - `templates/project-analysis-template.md`: reusable template for analyzing each project.
 - `templates/product-viewer-input-brief.md`: input brief for generating a practical 3D product viewer page from product name, model, hotspots, variants, and AR needs.
 - `templates/product-viewer-capability-checklist.md`: reusable checklist for product viewer cases such as `google/model-viewer`.
@@ -98,18 +99,18 @@ story-driven 3D portfolio generation
 
 ## Current Next Step
 
-The next useful move is not recording. Recording is already a known workflow from the GrassSystemThreeJS work.
+The next useful move is not another abstract 3D demo. The technical foundation is now enough to return to the project mainline.
 
 Next priority:
 
 ```text
-Close the current research stage, then start a separate cinematic product showcase branch.
+Choose a real product, real asset, or real brand case.
 ```
 
 Recommended work:
 
-1. Read `07-current-stage-handoff.md` to understand what is already stable and what is not solved.
-2. Treat `prototypes/product-viewer-story/` as the practical product-inspection branch, not the cinematic animation branch.
-3. Continue the isolated `prototypes/cinematic-product-showcase/` branch only when the goal is launch-page style product animation.
-4. Use that next branch to study earphone-style product entrance, exploded views, authored camera motion, feature visualization, and final hero shots.
-5. Reconnect recording/export only after the cinematic scene has a convincing timeline.
+1. Read `08-mainline-return.md` before starting more prototype work.
+2. Pick the target output: product page, launch video, 3D portfolio, or AI companion site.
+3. Collect the minimum real input: product/brand name, target platform, available assets, and audience.
+4. Choose one existing branch as the base instead of mixing patterns.
+5. Reconnect recording/export only after the real story and assets are convincing.

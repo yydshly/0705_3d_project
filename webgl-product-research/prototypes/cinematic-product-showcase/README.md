@@ -40,10 +40,34 @@ Open the Vite URL shown in the terminal.
 - No real brand assets, product renders, or sound design yet.
 - The purpose is capability validation, not final commercial polish.
 
+## Scope Decision
+
+This prototype is now intentionally kept as a technical validation prototype.
+
+Do not keep polishing the procedural earphone model as if it were a final product asset. The model is good enough to prove:
+
+- directed camera motion;
+- timeline-driven part movement;
+- product entrance and final hero framing;
+- feature visualization with waves and particles;
+- the difference between `model-viewer` inspection and custom Three.js animation.
+
+It is not intended to prove commercial-grade industrial design, real product modeling, UV mapping, texture quality, or launch-page visual polish.
+
+If the goal becomes product realism, the next step must be a real asset pipeline:
+
+```text
+real product brief
+  -> high-quality GLB / Blender / generated 3D asset
+  -> material and lighting QA
+  -> animation retargeting
+  -> publishing package
+```
+
 ## Next Improvements
 
-1. Replace procedural geometry with a real GLB product model.
-2. Add GSAP or a small internal timeline system for easier shot authoring.
-3. Add record controls using the existing GrassSystem publishing workflow.
-4. Add cover image, subtitles, voiceover, music, and publish notes.
+1. Keep this prototype as the reference for cinematic animation mechanics.
+2. Start a separate real-asset case before pursuing higher product realism.
+3. Add GSAP or a small internal timeline system only if timeline authoring becomes the bottleneck.
+4. Add record controls using the existing GrassSystem publishing workflow after the asset quality is convincing.
 5. Add a checklist that decides when to choose this pattern over `model-viewer`.

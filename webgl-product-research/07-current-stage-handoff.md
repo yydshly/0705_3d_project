@@ -92,6 +92,14 @@ Started as a first procedural Three.js prototype.
 It validates the animation pattern before introducing real product assets.
 ```
 
+Scope decision:
+
+```text
+Keep the procedural earphone as a technical validation model.
+Do not spend more effort polishing it toward commercial product realism.
+If realism becomes the goal, start a real-asset case with GLB / Blender / generated 3D assets.
+```
+
 ## Input Needed For A Real Product
 
 For a real product, ask for:

@@ -37,6 +37,7 @@ Use it to quickly inspect entry files, scripts, dependencies, shaders, models, t
 - Modern Three.js ecosystem: React Three Fiber, helpers, post-processing, physics.
 - Product display: 3D model viewers, AR, product inspection, publishing.
 - Real-world scene display: 3D Gaussian Splatting, scanned spaces, browser-native spatial scenes.
+- Character and avatar display: VRM, Live2D, generated avatars, expression, motion, voice, and virtual-guide behavior.
 - Low-level GPU foundation: WebGL, WebGPU, shaders, render pipelines.
 
 ## Current Research State
@@ -55,6 +56,9 @@ brunosimon/folio-2019
 
 google/model-viewer
   -> practical product 3D viewer, annotations, camera controls, AR, product-page publishing
+
+VRM / Live2D / Ready Player Me
+  -> character assets, expression, motion, voice/caption hooks, virtual-guide workflow
 ```
 
 The current priority has moved beyond proving the 3D portfolio skeleton. We now know that Samsy Ninja-style output is not mainly about "more 3D"; it is about story, identity, authored assets, camera direction, and proof.
@@ -84,6 +88,7 @@ story-driven 3D portfolio generation
 - `09-prototype-usage-guide.md`: decision guide for choosing the right prototype branch and skill pattern for each future 3D goal.
 - `10-missing-capability-backlog.md`: prioritized backlog for filling the remaining 3D capability gaps such as assets, 3DGS, avatars, WebGPU, physics, and production hardening.
 - `11-3dgs-technical-guide.md`: practical explanation of what 3D Gaussian Splatting is, how capture/rendering works, how it differs from VR house tours and GLB, and what to do next.
+- `12-character-avatar-technical-guide.md`: practical explanation of why character/avatar demos need asset, rig, expression, motion, behavior, voice, and scene-role layers instead of only a model viewer.
 - `templates/project-analysis-template.md`: reusable template for analyzing each project.
 - `templates/product-viewer-input-brief.md`: input brief for generating a practical 3D product viewer page from product name, model, hotspots, variants, and AR needs.
 - `templates/product-viewer-capability-checklist.md`: reusable checklist for product viewer cases such as `google/model-viewer`.
@@ -93,6 +98,8 @@ story-driven 3D portfolio generation
 - `templates/asset-intake-checklist.md`: first gate for deciding whether product photos, GLB/glTF files, generated assets, character assets, or placeholders can support the requested output.
 - `templates/model-quality-gate.md`: level-based quality gate for judging whether a model is missing, placeholder, inspectable, presentable, cinematic, or production-ready.
 - `templates/3dgs-capability-checklist.md`: reusable checklist for deciding when 3D Gaussian Splatting is better than GLB, and what format, viewer, performance, and hybrid-scene risks to inspect.
+- `templates/avatar-character-input-brief.md`: input brief for deciding whether a character-led product should use VRM, Live2D, Ready Player Me, or GLB, and what assets/motions/voice hooks are needed.
+- `templates/character-display-checklist.md`: reusable checklist for judging character grounding, rigging, expressions, motion, voice/caption timing, and scene role.
 
 ## Analyses
 
@@ -102,6 +109,7 @@ story-driven 3D portfolio generation
 - `analyses/2026-07-05-google-model-viewer.md`: practical product viewer case, focused on GLB/glTF display, hotspots, camera controls, material variants, loading behavior, and AR publishing.
 - `analyses/2026-07-06-asset-pipeline-smoke.md`: smoke check showing why the current product viewer and cinematic prototypes prove interaction mechanics, but not production-grade asset quality.
 - `analyses/2026-07-06-3dgs-real-scenes.md`: P0 real-scene capability analysis covering original 3DGS, SuperSplat, WebGL splat viewers, SPZ compression, Spark, and the mesh-vs-splat routing rule.
+- `analyses/2026-07-06-avatar-character-motion.md`: P1 character/avatar evidence note covering VRM, three-vrm, Live2D Cubism Web, Ready Player Me, and the route decision for character-led experiences.
 
 ## Cases
 

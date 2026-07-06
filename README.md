@@ -81,6 +81,15 @@ webgl-product-research/analyses/2026-07-06-3dgs-real-scenes.md
 webgl-product-research/11-3dgs-technical-guide.md
 ```
 
+角色 / Avatar 第一批模板：
+
+```text
+webgl-product-research/templates/avatar-character-input-brief.md
+webgl-product-research/templates/character-display-checklist.md
+webgl-product-research/analyses/2026-07-06-avatar-character-motion.md
+webgl-product-research/12-character-avatar-technical-guide.md
+```
+
 ## Current Case Map
 
 | Case | What It Teaches |

@@ -200,6 +200,21 @@ Candidate directions:
 - `references/character-avatar.md` for `webgl-product-film`
 - optional prototype: character viewer with idle animation, expression switch, and voice/caption hooks
 
+Initial artifacts now exist:
+
+- `analyses/2026-07-06-avatar-character-motion.md`
+- `12-character-avatar-technical-guide.md`
+- `templates/avatar-character-input-brief.md`
+- `templates/character-display-checklist.md`
+
+Current status:
+
+```text
+P1 source-evidence and template baseline started.
+```
+
+Runtime evidence is still needed before marking this branch complete. The next optional prototype should isolate a real VRM, Live2D, Ready Player Me, or animated GLB character asset and prove idle motion, expression switching, camera framing, and voice/caption hooks.
+
 ### Skill Update
 
 `webgl-product-film` should learn:
@@ -207,6 +222,7 @@ Candidate directions:
 - character projects need identity, motion, expression, and voice rules, not only a model;
 - AI companion / girlfriend should route to character validation, not general 3D product viewer;
 - avatar quality depends on rigging, animation clips, expression control, and interaction timing.
+- character branches should use `references/character-avatar.md` once the skill reference exists.
 
 ## P1: WebGPU / Low-Level Rendering
 

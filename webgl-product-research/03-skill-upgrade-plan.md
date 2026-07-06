@@ -276,6 +276,55 @@ Skill reference:
 C:\Users\yun68\.codex\skills\webgl-product-film\references\gaussian-splatting.md
 ```
 
+### 5b. Character / Avatar Workflow
+
+Triggered by:
+
+- AI companion / AI girlfriend / desktop assistant pages.
+- Virtual guides, presenters, mascots, NPCs, or character-led product pages.
+- VRM, Live2D, Ready Player Me, animated GLB, expression, lip-sync, gaze, or character motion requests.
+
+Add to Skill:
+
+- Route character work separately from product model viewing.
+- Check whether the user has a real character asset or only an image/concept.
+- Distinguish VRM, Live2D, Ready Player Me, and plain GLB routes.
+- Require identity, rig/expression, motion, behavior state, voice/caption timing, and scene role before judging quality.
+- Mark character prototypes asset-blocked when no suitable asset exists instead of hiding the gap with placeholder geometry.
+
+Reference file candidate:
+
+```text
+references/character-avatar.md
+```
+
+Evidence:
+
+- VRM official docs define VRM as a 3D humanoid avatar file format.
+- `@pixiv/three-vrm` shows the Three.js runtime route for VRM through `GLTFLoader` and `VRMLoaderPlugin`.
+- Live2D Cubism Web samples and SDK docs show the 2D character runtime route with motion, expression, physics, breath, eye blink, and lip-sync concepts.
+- Ready Player Me shows a web-ready avatar creation/integration route.
+- `analyses/2026-07-06-avatar-character-motion.md` records the bounded conclusion.
+
+Project templates:
+
+```text
+templates/avatar-character-input-brief.md
+templates/character-display-checklist.md
+```
+
+Project guide:
+
+```text
+12-character-avatar-technical-guide.md
+```
+
+Skill reference:
+
+```text
+C:\Users\yun68\.codex\skills\webgl-product-film\references\character-avatar.md
+```
+
 ### 6. Research-to-Skill Update Loop
 
 Add a simple rule:

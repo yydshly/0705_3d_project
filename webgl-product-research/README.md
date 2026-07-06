@@ -83,6 +83,7 @@ story-driven 3D portfolio generation
 - `08-mainline-return.md`: decision record for stopping abstract demo expansion and returning to real product / real asset / real brand cases.
 - `09-prototype-usage-guide.md`: decision guide for choosing the right prototype branch and skill pattern for each future 3D goal.
 - `10-missing-capability-backlog.md`: prioritized backlog for filling the remaining 3D capability gaps such as assets, 3DGS, avatars, WebGPU, physics, and production hardening.
+- `11-3dgs-technical-guide.md`: practical explanation of what 3D Gaussian Splatting is, how capture/rendering works, how it differs from VR house tours and GLB, and what to do next.
 - `templates/project-analysis-template.md`: reusable template for analyzing each project.
 - `templates/product-viewer-input-brief.md`: input brief for generating a practical 3D product viewer page from product name, model, hotspots, variants, and AR needs.
 - `templates/product-viewer-capability-checklist.md`: reusable checklist for product viewer cases such as `google/model-viewer`.

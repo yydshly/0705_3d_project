@@ -78,6 +78,7 @@ webgl-product-research/analyses/2026-07-06-asset-pipeline-smoke.md
 ```text
 webgl-product-research/templates/3dgs-capability-checklist.md
 webgl-product-research/analyses/2026-07-06-3dgs-real-scenes.md
+webgl-product-research/11-3dgs-technical-guide.md
 ```
 
 ## Current Case Map

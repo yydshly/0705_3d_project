@@ -206,14 +206,15 @@ Initial artifacts now exist:
 - `12-character-avatar-technical-guide.md`
 - `templates/avatar-character-input-brief.md`
 - `templates/character-display-checklist.md`
+- `prototypes/avatar-character-viewer/`
 
 Current status:
 
 ```text
-P1 source-evidence and template baseline started.
+P1 source-evidence, template baseline, and first VRM runtime prototype started.
 ```
 
-Runtime evidence is still needed before marking this branch complete. The next optional prototype should isolate a real VRM, Live2D, Ready Player Me, or animated GLB character asset and prove idle motion, expression switching, camera framing, and voice/caption hooks.
+The first runtime prototype proves a VRM + Three.js loading route and state/expression entry points. This branch is still not complete: later evidence should add authored motion clips, voice/caption timing, Live2D runtime evidence, and a product-specific character asset.
 
 ### Skill Update
 

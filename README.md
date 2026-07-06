@@ -127,6 +127,7 @@ http://127.0.0.1:5178/
 | 看产品模型查看器 | `webgl-product-research/prototypes/product-viewer-story/` |
 | 看产品动画原型 | `webgl-product-research/prototypes/cinematic-product-showcase/` |
 | 看 3DGS 真实场景查看器 | `webgl-product-research/prototypes/3dgs-real-scene-viewer/` |
+| 看 VRM 角色运行时原型 | `webgl-product-research/prototypes/avatar-character-viewer/` |
 | 看 AI 伴侣产品故事案例 | `webgl-product-research/prototypes/desktop-companion-story/` |
 
 ## Current Skill

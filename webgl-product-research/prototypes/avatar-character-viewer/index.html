@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avatar Character Viewer</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="panel panel-left" aria-label="avatar research notes">
+        <p class="eyebrow">P1 AVATAR RUNTIME EVIDENCE</p>
+        <h1>角色 / Avatar 运行时原型</h1>
+        <p class="lede">
+          这一页验证的不是“能不能显示一个模型”，而是 VRM 角色资产进入浏览器后的最小能力链：
+          加载、站位、观察、闲置状态、表情入口和质量判断。
+        </p>
+        <div class="route-card">
+          <span>当前路线</span>
+          <strong>VRM + Three.js + VRMLoaderPlugin</strong>
+        </div>
+        <ul class="proof-list">
+          <li>使用 three-vrm 官方示例 VRM 资产作为明确来源</li>
+          <li>通过 GLTFLoader 注册 VRMLoaderPlugin</li>
+          <li>运行时尝试读取 expression manager 与 meta 信息</li>
+          <li>保留角色状态面板，方便后续接入语音、字幕和动作</li>
+        </ul>
+      </section>
+
+      <section class="stage" aria-label="3d avatar stage">
+        <canvas id="avatar-canvas"></canvas>
+        <div class="hud hud-top">
+          <span id="asset-status">准备加载 VRM 角色资产...</span>
+        </div>
+        <div class="hud hud-bottom">
+          <span>拖动旋转观察</span>
+          <span>滚轮缩放</span>
+          <span>按钮切换角色状态</span>
+        </div>
+      </section>
+
+      <section class="panel panel-right" aria-label="avatar runtime controls">
+        <p class="eyebrow">CHARACTER STATE</p>
+        <h2>行为状态</h2>
+        <div class="button-grid" id="state-buttons">
+          <button type="button" data-state="idle" class="is-active">Idle</button>
+          <button type="button" data-state="greet">Greet</button>
+          <button type="button" data-state="explain">Explain</button>
+          <button type="button" data-state="think">Think</button>
+        </div>
+
+        <h2>表情入口</h2>
+        <div class="button-grid" id="expression-buttons">
+          <button type="button" data-expression="neutral" class="is-active">Neutral</button>
+          <button type="button" data-expression="happy">Happy</button>
+          <button type="button" data-expression="angry">Focus</button>
+          <button type="button" data-expression="relaxed">Relaxed</button>
+        </div>
+
+        <h2>运行时证据</h2>
+        <dl class="evidence-list">
+          <div>
+            <dt>Asset</dt>
+            <dd id="asset-name">VRM sample</dd>
+          </div>
+          <div>
+            <dt>Runtime</dt>
+            <dd id="runtime-route">GLTFLoader -> VRMLoaderPlugin</dd>
+          </div>
+          <div>
+            <dt>Expressions</dt>
+            <dd id="expression-status">等待模型加载</dd>
+          </div>
+          <div>
+            <dt>Quality</dt>
+            <dd>C2 Inspectable -> C3 Presentable baseline</dd>
+          </div>
+        </dl>
+
+        <p class="note">
+          这不是最终角色产品页。它是 Avatar 技术路线的第一块运行时证据，后续可继续接入真实角色资产、
+          动作 clips、语音字幕和剧情镜头。
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

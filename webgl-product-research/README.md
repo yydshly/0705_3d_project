@@ -123,6 +123,7 @@ story-driven 3D portfolio generation
 - `prototypes/product-viewer-story/`: practical product viewer prototype using `@google/model-viewer`, focused on one inspectable GLB object, hotspots, camera views, material tone controls, AR affordance, and a reusable template guide.
 - `prototypes/cinematic-product-showcase/`: first cinematic product-animation prototype using Three.js, focused on product entrance, directed camera motion, feature visualization, exploded view, energy particles, and final hero framing.
 - `prototypes/3dgs-real-scene-viewer/`: lightweight 3DGS real-scene viewer prototype that embeds public Gaussian Splatting samples, compares splat vs GLB, and explains when a hybrid splat + mesh route is needed.
+- `prototypes/avatar-character-viewer/`: first VRM-first character runtime prototype using Three.js and `@pixiv/three-vrm`, focused on avatar loading, grounding, idle behavior, expression entry points, and quality evidence.
 
 ## Current Next Step
 

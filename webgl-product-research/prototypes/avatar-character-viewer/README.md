@@ -22,13 +22,13 @@ npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite, usually:
+The project fixes the development port to `5181` so it matches the browser route used during research. Open:
 
 ```text
-http://127.0.0.1:5173/
+http://127.0.0.1:5181/
 ```
 
-If another prototype is already using that port, Vite will choose the next available port.
+If the port is occupied, stop the other local server or run `npm run dev -- --port <another-port>` and open the URL printed by Vite.
 
 ## What It Proves
 

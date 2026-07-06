@@ -255,6 +255,27 @@ Reference file candidate:
 references/gaussian-splatting.md
 ```
 
+Evidence:
+
+- `graphdeco-inria/gaussian-splatting` is the original reference implementation for the 3DGS training/rendering pipeline.
+- `playcanvas/supersplat` shows the practical browser editing/optimization/publishing layer.
+- `antimatter15/splat` shows a lightweight WebGL viewer pattern with custom splat URLs, `.ply` conversion, saved views, and progressive loading.
+- `nianticlabs/spz` shows why compressed splat formats and coordinate systems matter for publishing.
+- `sparkjs.dev` shows a mature Three.js integration direction for hybrid scenes with splats and meshes.
+- `analyses/2026-07-06-3dgs-real-scenes.md` records the bounded conclusion.
+
+Project template:
+
+```text
+templates/3dgs-capability-checklist.md
+```
+
+Skill reference:
+
+```text
+C:\Users\yun68\.codex\skills\webgl-product-film\references\gaussian-splatting.md
+```
+
 ### 6. Research-to-Skill Update Loop
 
 Add a simple rule:

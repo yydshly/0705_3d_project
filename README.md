@@ -73,6 +73,13 @@ webgl-product-research/templates/model-quality-gate.md
 webgl-product-research/analyses/2026-07-06-asset-pipeline-smoke.md
 ```
 
+真实场景 / 3DGS 第一批模板：
+
+```text
+webgl-product-research/templates/3dgs-capability-checklist.md
+webgl-product-research/analyses/2026-07-06-3dgs-real-scenes.md
+```
+
 ## Current Case Map
 
 | Case | What It Teaches |

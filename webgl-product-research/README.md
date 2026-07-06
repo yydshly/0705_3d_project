@@ -91,6 +91,7 @@ story-driven 3D portfolio generation
 - `templates/game-like-portfolio-capability-checklist.md`: reusable checklist for game-like 3D portfolios, product museums, AI tool showrooms, and virtual exhibitions.
 - `templates/asset-intake-checklist.md`: first gate for deciding whether product photos, GLB/glTF files, generated assets, character assets, or placeholders can support the requested output.
 - `templates/model-quality-gate.md`: level-based quality gate for judging whether a model is missing, placeholder, inspectable, presentable, cinematic, or production-ready.
+- `templates/3dgs-capability-checklist.md`: reusable checklist for deciding when 3D Gaussian Splatting is better than GLB, and what format, viewer, performance, and hybrid-scene risks to inspect.
 
 ## Analyses
 
@@ -99,6 +100,7 @@ story-driven 3D portfolio generation
 - `analyses/2026-07-05-bruno-simon-folio-2019.md`: third research sample, focused on game-like 3D portfolio architecture, physics interaction, spatial project boards, and reusable product/portfolio exhibition patterns.
 - `analyses/2026-07-05-google-model-viewer.md`: practical product viewer case, focused on GLB/glTF display, hotspots, camera controls, material variants, loading behavior, and AR publishing.
 - `analyses/2026-07-06-asset-pipeline-smoke.md`: smoke check showing why the current product viewer and cinematic prototypes prove interaction mechanics, but not production-grade asset quality.
+- `analyses/2026-07-06-3dgs-real-scenes.md`: P0 real-scene capability analysis covering original 3DGS, SuperSplat, WebGL splat viewers, SPZ compression, Spark, and the mesh-vs-splat routing rule.
 
 ## Cases
 

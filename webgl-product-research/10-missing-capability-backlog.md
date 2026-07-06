@@ -143,6 +143,12 @@ Candidate directions:
 - `references/gaussian-splatting.md` for `webgl-product-film`
 - optional prototype: minimal splat viewer or documented runtime inspection
 
+Initial artifacts now exist:
+
+- `analyses/2026-07-06-3dgs-real-scenes.md`
+- `templates/3dgs-capability-checklist.md`
+- `C:\Users\yun68\.codex\skills\webgl-product-film\references\gaussian-splatting.md`
+
 ### Skill Update
 
 `webgl-product-film` should learn:
@@ -151,6 +157,7 @@ Candidate directions:
 - how splat scenes differ from mesh scenes;
 - what file formats and performance risks to inspect;
 - when real-scene capture serves a product or life scenario better than modeled geometry.
+- when a hybrid scene needs splat visuals plus proxy mesh, GLB overlays, DOM hotspots, and guided camera paths.
 
 ## P1: Avatar / VRM / Live2D / Character Motion
 

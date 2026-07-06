@@ -1,6 +1,6 @@
 # Mainline Return
 
-This document records the decision to stop expanding technical demos for now and return to the project mainline.
+This document records the decision to stop expanding isolated technical demos for now and return to the real project mainline: 3D technology research and reusable skill sedimentation.
 
 For the actual project mainline, read:
 
@@ -24,7 +24,7 @@ Current answer:
 Yes, at the prototype and workflow level.
 ```
 
-The remaining quality gap is no longer mainly code. It is product definition, real assets, model quality, art direction, and publishing polish.
+The remaining gap is not only code quality. It is whether we can turn each case into reusable understanding: capability maps, implementation notes, templates, and skill instructions.
 
 ## What We Keep
 
@@ -53,24 +53,28 @@ Stop spending time on:
 The WebGL research should now hand off into:
 
 ```text
-Desktop Companion / AI companion product direction
-  -> product positioning
-  -> usable demo
-  -> optional 3D expression
-  -> publishable website or video
+case evidence
+  -> capability map
+  -> implementation principle
+  -> reusable template
+  -> skill update
+  -> later product / website / video generation
 ```
 
-Do not treat continued 3D research as the mainline. Treat it as a toolbox to support the product.
+Do not treat any single demo case as the mainline. Grass, product viewer, portfolio, cinematic showcase, and AI companion are all evidence cases for the broader 3D skill.
 
 ## Recommended Next Action From Research
 
-Pick one real direction before writing more 3D code. The current recommended direction is the Desktop Companion product demo:
+Consolidate the research before writing more demo code:
 
 ```text
-../docs/superpowers/plans/2026-07-05-desktop-companion-v1-product-demo.md
+06-research-case-matrix.md
+03-skill-upgrade-plan.md
+templates/
+../docs/mainline/2026-07-05-mainline-reset.md
 ```
 
-Other possible directions remain available:
+Possible validation cases remain available:
 
 1. Real product page:
    - Use `product-viewer-story/`.
@@ -87,28 +91,28 @@ Other possible directions remain available:
    - Need real identity, projects, images, proof assets.
    - Best for Samsy Ninja-style experience.
 
-4. AI companion product:
+4. AI companion / AI girlfriend product:
    - Use `desktop-companion-story/` or `desktop-ai-companion-site/`.
    - Need product positioning, character/companion assets, interaction story.
-   - Best for the desktop companion direction.
+   - Best as a validation case for product-story and character-driven 3D pages.
 
 ## Input Required From User Next
 
 The next useful user input should be one of:
 
 ```text
-I want to make a real product page for: ...
-I want to make a launch video for: ...
-I want to make a 3D portfolio for: ...
-I want to continue the AI companion product direction with: ...
+I want to study another 3D project: ...
+I want to improve the skill for this scenario: ...
+I want to turn this prototype into a reusable template: ...
+I want to use the current skill to make a product page / video / portfolio for: ...
 ```
 
 Minimum useful input:
 
-- product / brand / project name;
-- target output: webpage, video, demo, portfolio;
-- available assets: image, GLB, screenshot, logo, copy;
-- desired audience and platform.
+- target layer: research, skill update, template, demo, or publishable output;
+- source project or case;
+- available assets or evidence;
+- desired reusable output.
 
 ## Current Decision
 
@@ -120,4 +124,4 @@ Do not polish its procedural model further.
 Use it only to explain and reuse animation mechanics.
 ```
 
-The next valuable work is a real-asset, real-product, or real-brand case.
+The next valuable work is research consolidation: make the repository explain what we learned, when each branch should be used, and how the `webgl-product-film` skill should apply it later.

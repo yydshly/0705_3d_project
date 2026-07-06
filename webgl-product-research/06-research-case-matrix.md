@@ -34,7 +34,7 @@ If a case cannot teach a reusable capability, it should stay as inspiration rath
 | `GrassSystemThreeJS` | Shader / procedural scene / product film | A standalone Three.js demo can become a directed technical product film. | Strong | capability guide, cinematic scene, recording/export path, publish package |
 | `14islands/r3f-scroll-rig` | Scroll-driven DOM + WebGL website | Page layout and scroll progress can drive a persistent 3D canvas. | Medium-strong | analysis notes, evidence chain, scroll product prototype |
 | `brunosimon/folio-2019` | Game-like spatial portfolio | A portfolio can become an explorable 3D world with physics, boards, assets, and sound. | Medium | analysis notes, game-like portfolio checklist, research showroom prototype |
-| Desktop AI companion case | Real product story prototype | The story-driven website template can be applied to a concrete product idea. | Medium | product input brief, storyboard, isolated prototype |
+| Desktop AI companion case | Optional character / product-story validation case | The story-driven website template can be applied to a concrete product idea, but this is not the repository mainline. | Medium | product input brief, storyboard, isolated prototype |
 | `game-portfolio-story` | Internal synthesis prototype | Research samples can be displayed as spatial nodes with detail layers and Film Mode. | Medium | reusable skeleton, publishing notes, story-driven portfolio framework |
 | `google/model-viewer` | Practical product viewer | A real product model can be embedded, inspected, annotated, configured, and previewed in AR through a high-level web component. | Medium | analysis note, isolated research entry, product viewer checklist, input brief, reusable prototype guide |
 
@@ -81,7 +81,7 @@ The next research should reduce the biggest blind spots first:
 1. Test `templates/product-viewer-input-brief.md` with a stronger real product asset and real product copy.
 2. Use `templates/cinematic-product-showcase-input-brief.md` to start the next isolated product-animation case.
 3. R3F + `drei`: standardize how future prototypes are structured so they do not become hard-to-maintain one-file demos.
-4. Character / AI companion stack: connect this research to the desktop companion direction with avatar, motion, expression, and voice.
+4. Character / AI companion stack: use avatar, motion, expression, and voice as a validation case for character-driven 3D pages, not as the whole project direction.
 5. Asset pipeline: make quality repeatable through model/texture compression, loading states, and visual QA.
 6. Spatial knowledge graph: turn the research map itself into a useful knowledge product rather than only a showcase.
 

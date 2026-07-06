@@ -99,7 +99,7 @@ story-driven 3D portfolio generation
 
 ## Current Next Step
 
-The next useful move is not another abstract 3D demo. The technical foundation is now enough to return to the project mainline.
+The next useful move is not another unbounded visual demo. The mainline is to consolidate the 3D research into reusable knowledge, templates, and the `webgl-product-film` skill.
 
 For the mainline direction, read:
 
@@ -110,13 +110,14 @@ For the mainline direction, read:
 Next priority:
 
 ```text
-Continue the Desktop Companion / AI companion product direction.
+Consolidate 3D research evidence into reusable skill guidance.
 ```
 
 Recommended work:
 
 1. Read `../docs/mainline/2026-07-05-mainline-reset.md`.
-2. Use `../docs/superpowers/plans/2026-07-05-desktop-companion-v1-product-demo.md` as the execution anchor.
-3. Treat the 3D prototypes as supporting techniques, not the goal.
-4. Continue in `prototypes/desktop-companion-story/` unless the product direction changes.
-5. Reconnect recording/export only after the product story and assets are convincing.
+2. Review `06-research-case-matrix.md` and update the case coverage if needed.
+3. Review `03-skill-upgrade-plan.md` against the real evidence from the prototypes.
+4. Add or refine a prototype usage guide that explains when to use each branch.
+5. Update `webgl-product-film` only from evidence, not from theory alone.
+6. Treat AI companion / AI girlfriend as one optional validation case, not the project mainline.

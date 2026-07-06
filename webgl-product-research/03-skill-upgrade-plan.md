@@ -36,6 +36,27 @@ analyses/2026-07-05-r3f-scroll-rig-evidence-chain.md
 
 ## Candidate v2 Additions
 
+### 0. Prototype Selection Router
+
+Problem:
+
+- The Skill can analyze and transform a 3D demo, but it does not yet clearly choose which local prototype pattern to reuse for a future goal.
+
+Add to Skill:
+
+- A first-step routing question: is the goal technical explanation, scroll website, portfolio/showroom, product viewer, cinematic product animation, character case, or publishing?
+- A reference to the prototype usage guide:
+
+```text
+webgl-product-research/09-prototype-usage-guide.md
+```
+
+Evidence:
+
+- The current workspace now has multiple runnable branches.
+- Without routing, the work can drift into polishing the wrong demo.
+- The guide separates mainline skill building from optional product validation cases such as AI companion / AI girlfriend.
+
 ### 1. Immersive Website Analysis
 
 Triggered by:

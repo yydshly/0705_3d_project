@@ -71,6 +71,7 @@ story-driven 3D portfolio generation
 - `06-research-case-matrix.md`: current case coverage, missing capability areas, and the next research sequence for maturing the skill.
 - `07-current-stage-handoff.md`: current-stage closeout, stable capabilities, unsolved gaps, and the recommended next move toward cinematic product showcases.
 - `08-mainline-return.md`: decision record for stopping abstract demo expansion and returning to real product / real asset / real brand cases.
+- `09-prototype-usage-guide.md`: decision guide for choosing the right prototype branch and skill pattern for each future 3D goal.
 - `templates/project-analysis-template.md`: reusable template for analyzing each project.
 - `templates/product-viewer-input-brief.md`: input brief for generating a practical 3D product viewer page from product name, model, hotspots, variants, and AR needs.
 - `templates/product-viewer-capability-checklist.md`: reusable checklist for product viewer cases such as `google/model-viewer`.
@@ -117,7 +118,7 @@ Recommended work:
 
 1. Read `../docs/mainline/2026-07-05-mainline-reset.md`.
 2. Review `06-research-case-matrix.md` and update the case coverage if needed.
-3. Review `03-skill-upgrade-plan.md` against the real evidence from the prototypes.
-4. Add or refine a prototype usage guide that explains when to use each branch.
+3. Use `09-prototype-usage-guide.md` to choose the right branch for the next goal.
+4. Review `03-skill-upgrade-plan.md` against the real evidence from the prototypes.
 5. Update `webgl-product-film` only from evidence, not from theory alone.
 6. Treat AI companion / AI girlfriend as one optional validation case, not the project mainline.

@@ -37,13 +37,14 @@ If a case cannot teach a reusable capability, it should stay as inspiration rath
 | Desktop AI companion case | Optional character / product-story validation case | The story-driven website template can be applied to a concrete product idea, but this is not the repository mainline. | Medium | product input brief, storyboard, isolated prototype |
 | `game-portfolio-story` | Internal synthesis prototype | Research samples can be displayed as spatial nodes with detail layers and Film Mode. | Medium | reusable skeleton, publishing notes, story-driven portfolio framework |
 | `google/model-viewer` | Practical product viewer | A real product model can be embedded, inspected, annotated, configured, and previewed in AR through a high-level web component. | Medium | analysis note, isolated research entry, product viewer checklist, input brief, reusable prototype guide |
+| `cinematic-product-showcase` | Cinematic product animation prototype | Product reveal, camera beats, feature visualization, and exploded-view thinking can be prototyped, but asset quality remains the limiting factor. | Early-medium | cinematic input brief, launch-animation prototype, product animation risks |
 
 ## Missing Capability Areas
 
 | Priority | Area | Why It Matters | Candidate References | Expected Output |
 | --- | --- | --- | --- | --- |
 | P0 | Practical product viewer | Many real projects need inspectable products more than cinematic worlds. | `google/model-viewer`, Three.js model viewer examples | product viewer checklist, annotation/AR/control guidance, minimal product page |
-| P0 | Cinematic product showcase | Launch pages and product videos need authored animation, camera direction, part separation, and feature visualization. | earphone launch pages, Three.js/R3F product demos, GSAP timelines | cinematic input brief, exploded-view prototype, product animation checklist |
+| P0 | Cinematic product showcase refinement | Launch pages and product videos need authored animation, camera direction, part separation, and feature visualization. The first local prototype exists, but needs real assets and stronger production rules. | earphone launch pages, Three.js/R3F product demos, GSAP timelines | product animation checklist, asset-part separation guidance, camera timeline patterns |
 | P0 | Real assets and asset pipeline | Visual quality often fails because assets are placeholders, unoptimized, or mismatched. | GLB workflows, texture pipelines, Draco/KTX2, real screenshots/covers | asset intake checklist, compression notes, quality gate |
 | P1 | Character / AI companion display | Important for desktop companion, virtual assistant, mascot, and avatar products. | VRM, Live2D, Ready Player Me, Three.js animation examples | character display checklist, expression/motion/voice sync notes |
 | P1 | R3F engineering style | Future prototypes should not be one-off large files. | `pmndrs/react-three-fiber`, `pmndrs/drei` | starter architecture, component boundaries, helper selection |

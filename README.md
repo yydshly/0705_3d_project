@@ -61,6 +61,7 @@ webgl-product-research/
 | `03-skill-upgrade-plan.md` | `webgl-product-film` skill 升级计划 |
 | `06-research-case-matrix.md` | 当前案例覆盖度和缺口 |
 | `08-mainline-return.md` | 从零散 demo 回到研究主线的交接说明 |
+| `09-prototype-usage-guide.md` | 根据目标选择合适 prototype / skill 分支 |
 | `templates/` | 后续生成/分析 3D 项目的输入模板 |
 
 ## Current Case Map
@@ -138,7 +139,7 @@ source evidence
 
 1. 校准 `webgl-product-research/06-research-case-matrix.md`。
 2. 校准 `webgl-product-research/03-skill-upgrade-plan.md`。
-3. 新增或完善 prototype usage guide，说明每个原型适合什么场景。
+3. 使用 `webgl-product-research/09-prototype-usage-guide.md` 判断下一个目标该用哪个原型分支。
 4. 判断 `webgl-product-film` skill 还缺哪些能力。
 5. 再选择下一个研究项目或验证案例。
 

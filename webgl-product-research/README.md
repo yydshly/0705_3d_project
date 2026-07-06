@@ -101,16 +101,22 @@ story-driven 3D portfolio generation
 
 The next useful move is not another abstract 3D demo. The technical foundation is now enough to return to the project mainline.
 
+For the mainline direction, read:
+
+```text
+../docs/mainline/2026-07-05-mainline-reset.md
+```
+
 Next priority:
 
 ```text
-Choose a real product, real asset, or real brand case.
+Continue the Desktop Companion / AI companion product direction.
 ```
 
 Recommended work:
 
-1. Read `08-mainline-return.md` before starting more prototype work.
-2. Pick the target output: product page, launch video, 3D portfolio, or AI companion site.
-3. Collect the minimum real input: product/brand name, target platform, available assets, and audience.
-4. Choose one existing branch as the base instead of mixing patterns.
-5. Reconnect recording/export only after the real story and assets are convincing.
+1. Read `../docs/mainline/2026-07-05-mainline-reset.md`.
+2. Use `../docs/superpowers/plans/2026-07-05-desktop-companion-v1-product-demo.md` as the execution anchor.
+3. Treat the 3D prototypes as supporting techniques, not the goal.
+4. Continue in `prototypes/desktop-companion-story/` unless the product direction changes.
+5. Reconnect recording/export only after the product story and assets are convincing.

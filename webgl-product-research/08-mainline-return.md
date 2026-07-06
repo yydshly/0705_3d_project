@@ -2,6 +2,14 @@
 
 This document records the decision to stop expanding technical demos for now and return to the project mainline.
 
+For the actual project mainline, read:
+
+```text
+../docs/mainline/2026-07-05-mainline-reset.md
+```
+
+This file remains as the WebGL research handoff. It is not the mainline plan.
+
 ## Why We Stop Here
 
 The current research has answered the core technical question:
@@ -40,22 +48,29 @@ Stop spending time on:
 - adding recording/export before the story and asset quality justify it;
 - mixing product viewer, cinematic showcase, portfolio, and film pipeline into one prototype.
 
-## Project Mainline
+## Research-To-Mainline Handoff
 
-The mainline is now:
+The WebGL research should now hand off into:
 
 ```text
-real goal
-  -> choose the right 3D expression pattern
-  -> collect or generate real assets
-  -> build one focused prototype
-  -> package it for website or video
-  -> update the reusable skill only from evidence
+Desktop Companion / AI companion product direction
+  -> product positioning
+  -> usable demo
+  -> optional 3D expression
+  -> publishable website or video
 ```
 
-## Recommended Next Action
+Do not treat continued 3D research as the mainline. Treat it as a toolbox to support the product.
 
-Pick one real direction before writing more 3D code:
+## Recommended Next Action From Research
+
+Pick one real direction before writing more 3D code. The current recommended direction is the Desktop Companion product demo:
+
+```text
+../docs/superpowers/plans/2026-07-05-desktop-companion-v1-product-demo.md
+```
+
+Other possible directions remain available:
 
 1. Real product page:
    - Use `product-viewer-story/`.

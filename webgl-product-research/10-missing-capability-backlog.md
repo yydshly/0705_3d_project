@@ -147,6 +147,7 @@ Initial artifacts now exist:
 
 - `analyses/2026-07-06-3dgs-real-scenes.md`
 - `templates/3dgs-capability-checklist.md`
+- `prototypes/3dgs-real-scene-viewer/`
 - `C:\Users\yun68\.codex\skills\webgl-product-film\references\gaussian-splatting.md`
 
 ### Skill Update

@@ -113,6 +113,7 @@ story-driven 3D portfolio generation
 - `prototypes/game-portfolio-story/`: third derivative prototype inspired by `brunosimon/folio-2019` and Samsy Ninja-style immersive portfolios. It now validates spatial nodes, detail layers, replaceable covers, Film Mode, and a lightweight publishing package.
 - `prototypes/product-viewer-story/`: practical product viewer prototype using `@google/model-viewer`, focused on one inspectable GLB object, hotspots, camera views, material tone controls, AR affordance, and a reusable template guide.
 - `prototypes/cinematic-product-showcase/`: first cinematic product-animation prototype using Three.js, focused on product entrance, directed camera motion, feature visualization, exploded view, energy particles, and final hero framing.
+- `prototypes/3dgs-real-scene-viewer/`: lightweight 3DGS real-scene viewer prototype that embeds public Gaussian Splatting samples, compares splat vs GLB, and explains when a hybrid splat + mesh route is needed.
 
 ## Current Next Step
 

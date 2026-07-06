@@ -20,6 +20,7 @@ What should enter the skill later?
 | Make a Samsy Ninja-style portfolio or research showroom | `prototypes/game-portfolio-story/` | Best evidence for spatial nodes, detail layers, authored world structure, and guided Film Mode. |
 | Display and inspect a real product model | `prototypes/product-viewer-story/` | Best evidence for glTF / GLB viewing, hotspots, camera views, material variants, and AR-style publishing. |
 | Make a launch-style product animation | `prototypes/cinematic-product-showcase/` | Best evidence for camera beats, product entrance, feature visualization, particles, and exploded-view thinking. |
+| View and explain a real captured space | `prototypes/3dgs-real-scene-viewer/` | Best evidence for 3DGS as a captured real-scene viewing route, distinct from GLB product models. |
 | Test character / companion storytelling | `prototypes/desktop-companion-story/` or `prototypes/desktop-ai-companion-site/` | Useful validation case for avatar, personality, emotion, memory, and product-story presentation. Not the mainline. |
 
 ## Pattern 1: Technical Scene To Product Film
@@ -262,6 +263,44 @@ Skill implication:
 
 ```text
 This is an optional validation case for character-driven 3D pages. It is not the repository mainline.
+```
+
+## Pattern 7: 3DGS Real-Scene Viewer
+
+Use when the target is a captured real space rather than a clean product model.
+
+Starting point:
+
+```text
+webgl-product-research/prototypes/3dgs-real-scene-viewer/
+```
+
+Best for:
+
+- real rooms;
+- galleries, venues, booths, stores, studios, and workspaces;
+- memory spaces and spatial storytelling;
+- digital twin exploration;
+- explaining mesh vs splat decision rules.
+
+Required input:
+
+- public or owned `.splat`, `.ply`, `.ksplat`, `.spz`, or hosted viewer URL;
+- target camera path or key views;
+- whether hotspots, DOM explanations, or GLB overlays are needed;
+- performance and privacy constraints.
+
+Expected output:
+
+- embedded or local splat viewer;
+- scene switching or saved camera views;
+- explanation of 3DGS vs GLB / mesh;
+- notes on file format, loading, artifacts, and hybrid scene risks.
+
+Skill implication:
+
+```text
+3DGS is a real-scene route. If the user needs product variants, exploded parts, AR, or material editing, route back to GLB / mesh. If the user needs a real room or place, consider splat + mesh + DOM hybrid.
 ```
 
 ## How To Choose The Next Research Case

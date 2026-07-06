@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3DGS Real Scene Viewer</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">P0 REAL-SCENE PROTOTYPE</p>
+          <h1>3DGS 真实场景查看器</h1>
+          <p class="lead">
+            这个原型不是产品模型展示页，而是用公开 Gaussian Splatting viewer 直接观察真实空间类 3D 数据：
+            它更像“从照片/视频重建出来的空间记忆”，不是可拆解、可换材质的 GLB 模型。
+          </p>
+        </div>
+        <div class="status-card">
+          <span>当前路线</span>
+          <strong>3DGS / Real Scene</strong>
+          <small>公开样例需要联网加载</small>
+        </div>
+      </section>
+
+      <section class="viewer-grid">
+        <aside class="control-panel">
+          <div class="panel-section">
+            <h2>样例场景</h2>
+            <div class="scene-list" id="sceneList"></div>
+          </div>
+
+          <div class="panel-section active-scene">
+            <span id="sceneType">Real-space splat</span>
+            <h3 id="sceneTitle">Garden Scene</h3>
+            <p id="sceneDescription"></p>
+            <dl>
+              <div>
+                <dt>格式</dt>
+                <dd id="sceneFormat">.splat</dd>
+              </div>
+              <div>
+                <dt>适合</dt>
+                <dd id="sceneUse">真实空间观看</dd>
+              </div>
+              <div>
+                <dt>限制</dt>
+                <dd id="sceneLimit">不可直接当作可编辑 mesh</dd>
+              </div>
+            </dl>
+            <a id="openExternal" href="https://antimatter15.com/splat/?url=garden.splat" target="_blank" rel="noreferrer">
+              新窗口打开 viewer
+            </a>
+          </div>
+
+          <div class="panel-section">
+            <h2>操作提示</h2>
+            <ul>
+              <li>鼠标拖动：环绕观察</li>
+              <li>右键或触控板：前后移动</li>
+              <li>数字键：切换 viewer 预置视角</li>
+              <li>若 iframe 被浏览器拦截，用“新窗口打开 viewer”</li>
+            </ul>
+          </div>
+        </aside>
+
+        <section class="viewer-panel">
+          <div class="viewer-toolbar">
+            <div>
+              <span class="toolbar-label">Embedded WebGL Splat Viewer</span>
+              <strong id="viewerName">Garden</strong>
+            </div>
+            <button id="reloadFrame" type="button">重新加载</button>
+          </div>
+          <iframe
+            id="splatFrame"
+            title="3D Gaussian Splatting public viewer"
+            src="https://antimatter15.com/splat/?url=garden.splat"
+            allow="fullscreen; xr-spatial-tracking"
+            referrerpolicy="no-referrer"
+          ></iframe>
+        </section>
+      </section>
+
+      <section class="compare" id="meshVsSplat">
+        <div class="compare-card splat">
+          <p class="eyebrow">3DGS / Splat</p>
+          <h2>适合真实空间</h2>
+          <p>用照片或视频重建场景，强项是房间、展厅、街角、工作室、记忆空间、数字孪生。</p>
+          <ul>
+            <li>视觉上接近真实拍摄</li>
+            <li>适合导览和空间叙事</li>
+            <li>需要关注格式、体积、加载、移动端性能</li>
+          </ul>
+        </div>
+        <div class="compare-card mesh">
+          <p class="eyebrow">GLB / Mesh</p>
+          <h2>适合产品模型</h2>
+          <p>用清晰几何、材质和动画表达产品，强项是产品查看、材质切换、拆解、AR、交互。</p>
+          <ul>
+            <li>可以做热点、变体和拆解动画</li>
+            <li>更适合产品页和电商检查</li>
+            <li>依赖高质量建模、PBR 材质和压缩</li>
+          </ul>
+        </div>
+        <div class="compare-card hybrid">
+          <p class="eyebrow">Hybrid Route</p>
+          <h2>真实空间 + 产品/角色</h2>
+          <p>成熟产品形态通常是 splat 作为真实空间背景，再叠加 GLB 产品、角色、热点和 DOM 文案。</p>
+          <ul>
+            <li>3DGS 承担真实环境</li>
+            <li>GLB 承担可控产品/角色</li>
+            <li>DOM 承担说明、导航和发布信息</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <script src="./src/main.js"></script>
+  </body>
+</html>

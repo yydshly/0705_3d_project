@@ -79,6 +79,12 @@ Important gaps:
 - stronger publishing workflow for MP4, cover, captions, and audio;
 - clearer template-selection rules.
 
+The detailed backlog for these gaps is now tracked in:
+
+```text
+webgl-product-research/10-missing-capability-backlog.md
+```
+
 ## Next Work Sequence
 
 The next mainline work should be:
@@ -92,8 +98,9 @@ The next mainline work should be:
    - when to use cinematic showcase;
    - when to use game-like portfolio;
    - when to use character / AI companion cases.
-4. Decide the next research target based on missing capability, not visual excitement.
-5. Only after that, run another validation case.
+4. Use `webgl-product-research/10-missing-capability-backlog.md` to choose the next missing capability.
+5. Decide the next research target based on missing capability, not visual excitement.
+6. Only after that, run another validation case.
 
 ## Decision Rule
 

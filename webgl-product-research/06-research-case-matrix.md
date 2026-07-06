@@ -41,6 +41,12 @@ If a case cannot teach a reusable capability, it should stay as inspiration rath
 
 ## Missing Capability Areas
 
+The expanded backlog and completion rules are tracked in:
+
+```text
+10-missing-capability-backlog.md
+```
+
 | Priority | Area | Why It Matters | Candidate References | Expected Output |
 | --- | --- | --- | --- | --- |
 | P0 | Practical product viewer | Many real projects need inspectable products more than cinematic worlds. | `google/model-viewer`, Three.js model viewer examples | product viewer checklist, annotation/AR/control guidance, minimal product page |
@@ -77,14 +83,14 @@ Each future research case should end with five artifacts:
 
 ## Recommended Next Sequence
 
-The next research should reduce the biggest blind spots first:
+The next research should reduce the biggest blind spots first. Use `10-missing-capability-backlog.md` as the detailed execution queue.
 
 1. Test `templates/product-viewer-input-brief.md` with a stronger real product asset and real product copy.
-2. Use `templates/cinematic-product-showcase-input-brief.md` to start the next isolated product-animation case.
-3. R3F + `drei`: standardize how future prototypes are structured so they do not become hard-to-maintain one-file demos.
+2. Research real asset pipeline so quality is repeatable through model/texture compression, loading states, and visual QA.
+3. Research 3D Gaussian Splatting / real-scene display as the next missing category.
 4. Character / AI companion stack: use avatar, motion, expression, and voice as a validation case for character-driven 3D pages, not as the whole project direction.
-5. Asset pipeline: make quality repeatable through model/texture compression, loading states, and visual QA.
-6. Spatial knowledge graph: turn the research map itself into a useful knowledge product rather than only a showcase.
+5. WebGPU / low-level rendering: keep the conceptual foundation accurate and future-facing.
+6. Physics interaction and production hardening: expand playable scenes and make outputs dependable.
 
 ## Decision Rules
 

@@ -34,6 +34,14 @@ Current evidence chain:
 analyses/2026-07-05-r3f-scroll-rig-evidence-chain.md
 ```
 
+Current missing-capability backlog:
+
+```text
+10-missing-capability-backlog.md
+```
+
+Use the backlog to decide which reference files or templates should be added next. Do not add new skill branches until a backlog item has source evidence, runtime or prototype evidence, and a bounded conclusion.
+
 ## Candidate v2 Additions
 
 ### 0. Prototype Selection Router

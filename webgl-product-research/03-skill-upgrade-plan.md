@@ -196,6 +196,44 @@ Reference file candidate:
 references/product-viewer.md
 ```
 
+### 4b. Real Asset Pipeline
+
+Triggered by:
+
+- Product photos without a 3D model.
+- GLB / glTF / FBX / OBJ / Blender assets.
+- Generated or procedural models.
+- User feedback that a model looks rough, stretched, floating, toy-like, or placeholder-like.
+- Requests for product viewers, product films, avatars, immersive pages, or portfolio nodes that depend on model quality.
+
+Add to Skill:
+
+- Classify the current input before choosing a prototype route.
+- Separate asset quality from WebGL implementation quality.
+- Use a model quality level: L0 Missing, L1 Placeholder, L2 Inspectable, L3 Presentable, L4 Cinematic, L5 Production.
+- If the user only has images, explain that true 3D display requires model creation, sourcing, scanning, or generation first.
+- If a model exists, inspect format, size, scale, orientation, grounding, geometry, materials, textures, animation readiness, compression, and license.
+- If the asset is weak, recommend improving the asset before spending time on camera polish.
+
+Evidence:
+
+- `product-viewer-story` validates model-viewer mechanics using an L2 procedural GLB, not production asset quality.
+- `cinematic-product-showcase` validates camera and product-animation mechanics using procedural geometry, not a real industrial model.
+- `analyses/2026-07-06-asset-pipeline-smoke.md` records the bounded conclusion.
+
+Project templates:
+
+```text
+templates/asset-intake-checklist.md
+templates/model-quality-gate.md
+```
+
+Skill reference:
+
+```text
+C:\Users\yun68\.codex\skills\webgl-product-film\references\asset-pipeline.md
+```
+
 ### 5. 3DGS / Real-World Scene Workflow
 
 Triggered by:

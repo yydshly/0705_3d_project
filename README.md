@@ -65,6 +65,14 @@ webgl-product-research/
 | `10-missing-capability-backlog.md` | 下一阶段要补齐的 3D 能力缺口队列 |
 | `templates/` | 后续生成/分析 3D 项目的输入模板 |
 
+资产管线第一批模板：
+
+```text
+webgl-product-research/templates/asset-intake-checklist.md
+webgl-product-research/templates/model-quality-gate.md
+webgl-product-research/analyses/2026-07-06-asset-pipeline-smoke.md
+```
+
 ## Current Case Map
 
 | Case | What It Teaches |

@@ -92,6 +92,13 @@ Look for GitHub projects, docs, and tools around:
 - `references/asset-pipeline.md` for `webgl-product-film`
 - optional local prototype: real GLB asset viewer with before/after optimization notes
 
+Initial artifacts now exist:
+
+- `templates/asset-intake-checklist.md`
+- `templates/model-quality-gate.md`
+- `analyses/2026-07-06-asset-pipeline-smoke.md`
+- `C:\Users\yun68\.codex\skills\webgl-product-film\references\asset-pipeline.md`
+
 ### Skill Update
 
 `webgl-product-film` should learn:

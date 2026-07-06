@@ -89,6 +89,8 @@ story-driven 3D portfolio generation
 - `templates/cinematic-product-showcase-input-brief.md`: input brief for launch-page style product animation with entrance, exploded views, feature visualization, and final hero shots.
 - `templates/story-driven-3d-website-input-brief.md`: reusable input brief for generating 3D portfolios, immersive brand sites, and spatial product pages.
 - `templates/game-like-portfolio-capability-checklist.md`: reusable checklist for game-like 3D portfolios, product museums, AI tool showrooms, and virtual exhibitions.
+- `templates/asset-intake-checklist.md`: first gate for deciding whether product photos, GLB/glTF files, generated assets, character assets, or placeholders can support the requested output.
+- `templates/model-quality-gate.md`: level-based quality gate for judging whether a model is missing, placeholder, inspectable, presentable, cinematic, or production-ready.
 
 ## Analyses
 
@@ -96,6 +98,7 @@ story-driven 3D portfolio generation
 - `analyses/2026-07-05-r3f-scroll-rig-evidence-chain.md`: clean evidence chain for deciding what can be safely added to `webgl-product-film`.
 - `analyses/2026-07-05-bruno-simon-folio-2019.md`: third research sample, focused on game-like 3D portfolio architecture, physics interaction, spatial project boards, and reusable product/portfolio exhibition patterns.
 - `analyses/2026-07-05-google-model-viewer.md`: practical product viewer case, focused on GLB/glTF display, hotspots, camera controls, material variants, loading behavior, and AR publishing.
+- `analyses/2026-07-06-asset-pipeline-smoke.md`: smoke check showing why the current product viewer and cinematic prototypes prove interaction mechanics, but not production-grade asset quality.
 
 ## Cases
 

@@ -25,6 +25,19 @@ Open:
 http://127.0.0.1:5181/
 ```
 
+If you want to run the checks on Windows PowerShell, use:
+
+```powershell
+node scripts\check-static.mjs
+node scripts\check-server.mjs
+```
+
+or:
+
+```powershell
+npm.cmd run build
+```
+
 The embedded viewer uses public samples from `https://antimatter15.com/splat/`, so the page needs internet access for the 3DGS iframe. If the iframe is blocked, use the "open viewer" link in the page.
 
 ## What To Look For

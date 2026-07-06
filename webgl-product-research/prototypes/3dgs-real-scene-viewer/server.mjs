@@ -16,13 +16,21 @@ const mimeTypes = new Map([
 
 function resolveRequest(url) {
   const pathname = new URL(url, `http://127.0.0.1:${port}`).pathname;
+  if (pathname === '/') return join(root, 'index.html');
   const safePath = normalize(decodeURIComponent(pathname)).replace(/^(\.\.[/\\])+/, '');
-  const localPath = safePath === '/' ? 'index.html' : safePath.replace(/^[/\\]/, '');
+  const localPath = safePath.replace(/^[/\\]/, '');
   return join(root, localPath);
 }
 
 const server = createServer(async (request, response) => {
   try {
+    const pathname = new URL(request.url || '/', `http://127.0.0.1:${port}`).pathname;
+    if (pathname === '/favicon.ico') {
+      response.writeHead(204);
+      response.end();
+      return;
+    }
+
     const filePath = resolveRequest(request.url || '/');
     const body = await readFile(filePath);
     response.writeHead(200, {

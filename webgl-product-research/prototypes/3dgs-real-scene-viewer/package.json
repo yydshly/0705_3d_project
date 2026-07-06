@@ -5,6 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "node server.mjs",
-    "build": "node scripts/check-static.mjs"
+    "build": "node scripts/check-static.mjs && node scripts/check-server.mjs"
   }
 }

@@ -20,6 +20,7 @@ What should enter the skill later?
 | Make a Samsy Ninja-style portfolio or research showroom | `prototypes/game-portfolio-story/` | Best evidence for spatial nodes, detail layers, authored world structure, and guided Film Mode. |
 | Display and inspect a real product model | `prototypes/product-viewer-story/` | Best evidence for glTF / GLB viewing, hotspots, camera views, material variants, and AR-style publishing. |
 | Make a launch-style product animation | `prototypes/cinematic-product-showcase/` | Best evidence for camera beats, product entrance, feature visualization, particles, and exploded-view thinking. |
+| Pull a product apart and inspect one part at a time | `prototypes/exploded-product-inspector/` | Best evidence for direct part selection, explode/collapse, and camera framing. The motion is driven by the user, not by a film timeline. |
 | View and explain a real captured space | `prototypes/3dgs-real-scene-viewer/` | Best evidence for 3DGS as a captured real-scene viewing route, distinct from GLB product models. |
 | Test character / companion storytelling | `prototypes/desktop-companion-story/` or `prototypes/desktop-ai-companion-site/` | Useful validation case for avatar, personality, emotion, memory, and product-story presentation. Not the mainline. |
 
@@ -301,6 +302,40 @@ Skill implication:
 
 ```text
 3DGS is a real-scene route. If the user needs product variants, exploded parts, AR, or material editing, route back to GLB / mesh. If the user needs a real room or place, consider splat + mesh + DOM hybrid.
+```
+
+## Pattern 8: Exploded Product Inspector
+
+Use when someone needs to pull named parts away from a product and read each part, without playing a directed film.
+
+Starting point:
+
+```text
+webgl-product-research/prototypes/exploded-product-inspector/
+```
+
+Best for:
+
+- explode and collapse on a fixed axis per part;
+- click selection with highlight, side copy, and a camera move;
+- checking that DOM controls and the WebGL scene stay in sync.
+
+Required input:
+
+- a part list with names, one-line descriptions, and explode directions;
+- a mesh or procedural stand-in for each part.
+
+Expected output:
+
+- an orbitable product;
+- explode, collapse, and reset controls;
+- a side panel that follows the selected part.
+
+Skill implication:
+
+```text
+Use this when the interaction is "open the product and point at a part."
+Use cinematic-product-showcase when the same separation should play as a timed shot.
 ```
 
 ## How To Choose The Next Research Case

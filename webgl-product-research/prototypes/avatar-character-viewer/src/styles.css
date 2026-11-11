@@ -37,7 +37,9 @@ button {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  max-height: 100vh;
   padding: 28px;
+  overflow: auto;
   background: rgba(6, 10, 17, 0.72);
   border-color: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(18px);
@@ -168,10 +170,59 @@ h2 {
 }
 
 .button-grid button:hover,
-.button-grid button.is-active {
+.button-grid button.is-active,
+.beat-button:hover,
+.beat-button[aria-pressed='true'] {
   color: #06110e;
   background: #7df0c2;
   border-color: #7df0c2;
+}
+
+.beat-button {
+  min-height: 42px;
+  color: #dce7f8;
+  cursor: pointer;
+  background: rgba(21, 31, 48, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+}
+
+.beat-progress {
+  height: 4px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+.beat-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #7df0c2;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.stage-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 76px;
+  z-index: 4;
+  width: min(640px, 86%);
+  margin: 0;
+  padding: 12px 16px;
+  color: #f5f7fb;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  background: rgba(7, 10, 15, 0.86);
+  border: 1px solid rgba(125, 240, 194, 0.4);
+  border-radius: 8px;
+  transform: translateX(-50%);
+}
+
+.stage-caption[hidden] {
+  display: none;
 }
 
 .evidence-list {

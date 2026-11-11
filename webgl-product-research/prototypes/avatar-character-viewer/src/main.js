@@ -3,6 +3,15 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { VRMLoaderPlugin, VRMUtils } from '@pixiv/three-vrm';
+import {
+  GUIDE_BEAT,
+  MOUTH_SHAPES,
+  beatDuration,
+  cueAt,
+  cueIndexAt,
+  isBeatComplete,
+  mouthAt,
+} from './captionBeat.js';
 
 const VRM_URL = '/models/VRM1_Constraint_Twist_Sample.vrm';
 
@@ -13,6 +22,13 @@ const assetNameEl = document.querySelector('#asset-name');
 const runtimeRouteEl = document.querySelector('#runtime-route');
 const stateButtons = [...document.querySelectorAll('[data-state]')];
 const expressionButtons = [...document.querySelectorAll('[data-expression]')];
+const playBeatButton = document.querySelector('#play-beat');
+const stageCaptionEl = document.querySelector('#stage-caption');
+const beatStatusEl = document.querySelector('#beat-status');
+const beatProgressEl = document.querySelector('#beat-progress-bar');
+const mouthStatusEl = document.querySelector('#mouth-status');
+const voiceStatusEl = document.querySelector('#voice-status');
+const guideAudio = document.querySelector('#guide-audio');
 
 const clock = new THREE.Clock();
 const scene = new THREE.Scene();
@@ -84,6 +100,7 @@ let currentVrm = null;
 let activeState = 'idle';
 let activeExpression = 'neutral';
 let loadStartedAt = performance.now();
+let beatPlayback = null;
 
 function setStatus(text) {
   statusEl.textContent = text;
@@ -122,7 +139,7 @@ function setExpression(name) {
   }
 }
 
-function setState(name) {
+function setState(name, { silent = false } = {}) {
   activeState = name;
   setActiveButton(stateButtons, name, 'state');
   const copy = {
@@ -131,7 +148,122 @@ function setState(name) {
     explain: 'Explain: 角色转向说明面板，适合产品导览。',
     think: 'Think: 节奏放慢，模拟思考/等待响应。',
   };
-  setStatus(copy[name]);
+  if (!silent) setStatus(copy[name]);
+}
+
+function setBeatUi({ pressed, caption = '', status }) {
+  playBeatButton.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+  playBeatButton.textContent = pressed ? '停止导览' : '播放导览';
+  stageCaptionEl.hidden = caption === '';
+  stageCaptionEl.textContent = caption;
+  if (status) beatStatusEl.textContent = status;
+}
+
+function setBeatProgress(elapsed) {
+  const progress = Math.max(0, Math.min(1, elapsed / beatDuration(GUIDE_BEAT)));
+  beatProgressEl.style.transform = `scaleX(${progress})`;
+}
+
+function stopGuideAudio() {
+  guideAudio.pause();
+  guideAudio.currentTime = 0;
+}
+
+function cancelBeat(status) {
+  if (!beatPlayback) return;
+  beatPlayback = null;
+  stopGuideAudio();
+  setBeatProgress(0);
+  setBeatUi({ pressed: false, status });
+  voiceStatusEl.textContent = '已停止';
+  mouthStatusEl.textContent = '闭合';
+}
+
+function stopBeat(status, { progress = null } = {}) {
+  beatPlayback = null;
+  stopGuideAudio();
+  setBeatProgress(progress ?? beatDuration(GUIDE_BEAT));
+  setBeatUi({ pressed: false, status });
+  setState('idle', { silent: true });
+  setExpression('neutral');
+  voiceStatusEl.textContent = progress === 0 ? '已停止' : '朗读结束';
+  mouthStatusEl.textContent = '闭合';
+}
+
+function beatElapsed() {
+  if (!beatPlayback) return 0;
+  if (beatPlayback.useAudio && Number.isFinite(guideAudio.currentTime)) {
+    return guideAudio.currentTime * 1000;
+  }
+  return performance.now() - beatPlayback.startedAt;
+}
+
+function toggleBeat() {
+  if (beatPlayback) {
+    stopBeat('导览已停止，回到 Idle', { progress: 0 });
+    setStatus('导览已停止，角色回到 Idle。');
+    return;
+  }
+
+  beatPlayback = { startedAt: performance.now(), cueIndex: -1, useAudio: true };
+  guideAudio.src = GUIDE_BEAT.audio;
+  guideAudio.currentTime = 0;
+  setBeatUi({ pressed: true, status: '导览准备开始' });
+  setStatus('导览播放中。语音、字幕、表情和嘴型使用同一条时间轴。');
+  const playback = guideAudio.play();
+  playback
+    ?.then(() => {
+      voiceStatusEl.textContent = '正在朗读生成语音';
+    })
+    .catch(() => {
+      if (!beatPlayback) return;
+      beatPlayback.useAudio = false;
+      beatPlayback.startedAt = performance.now();
+      voiceStatusEl.textContent = '语音被拦截，字幕和口型继续走';
+    });
+}
+
+function updateBeat() {
+  if (!beatPlayback) return;
+
+  const elapsed = beatElapsed();
+  setBeatProgress(elapsed);
+  if (isBeatComplete(GUIDE_BEAT, elapsed)) {
+    stopBeat('导览已结束，回到 Idle');
+    setStatus('导览结束。语音和字幕已走完，角色回到 Idle。');
+    voiceStatusEl.textContent = '朗读结束';
+    return;
+  }
+
+  const cueIndex = cueIndexAt(GUIDE_BEAT, elapsed);
+  if (cueIndex === beatPlayback.cueIndex || cueIndex < 0) return;
+
+  const cue = GUIDE_BEAT.cues[cueIndex];
+  beatPlayback.cueIndex = cueIndex;
+  setState(cue.state, { silent: true });
+  setExpression(cue.expression);
+  setBeatUi({
+    pressed: true,
+    caption: cue.caption,
+    status: `${cueIndex + 1} / ${GUIDE_BEAT.cues.length} · ${cue.state} / ${cue.expression}`,
+  });
+  setStatus(`导览 ${cueIndex + 1}/${GUIDE_BEAT.cues.length}`);
+}
+
+function applyMouth(elapsed) {
+  const manager = currentVrm?.expressionManager;
+  const cue = beatPlayback ? cueAt(GUIDE_BEAT, elapsed) : null;
+  const mouth = mouthAt(cue, elapsed);
+
+  if (manager) {
+    for (const shape of MOUTH_SHAPES) {
+      if (!manager.expressionMap?.[shape]) continue;
+      manager.setValue(shape, mouth.shape === shape ? mouth.weight : 0);
+    }
+  }
+
+  mouthStatusEl.textContent = mouth.shape ? `${mouth.shape} ${mouth.weight.toFixed(2)}` : '闭合';
+  return mouth.weight;
 }
 
 function updateCharacterMotion(elapsed) {
@@ -230,11 +362,24 @@ function resize() {
 }
 
 stateButtons.forEach((button) => {
-  button.addEventListener('click', () => setState(button.dataset.state));
+  button.addEventListener('click', () => {
+    cancelBeat('已改用手动状态');
+    setState(button.dataset.state);
+  });
 });
 
 expressionButtons.forEach((button) => {
-  button.addEventListener('click', () => setExpression(button.dataset.expression));
+  button.addEventListener('click', () => {
+    cancelBeat('已改用手动表情');
+    setExpression(button.dataset.expression);
+  });
+});
+
+playBeatButton.addEventListener('click', toggleBeat);
+guideAudio.addEventListener('ended', () => {
+  if (!beatPlayback?.useAudio) return;
+  stopBeat('导览已结束，回到 Idle');
+  setStatus('导览结束。语音和字幕已走完，角色回到 Idle。');
 });
 
 window.addEventListener('resize', resize);
@@ -243,6 +388,8 @@ function animate() {
   const delta = clock.getDelta();
   const elapsed = clock.elapsedTime;
 
+  updateBeat();
+  applyMouth(beatElapsed());
   updateCharacterMotion(elapsed);
   currentVrm?.update(delta);
   ring.rotation.z += delta * 0.16;

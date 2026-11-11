@@ -23,7 +23,7 @@
           <li>使用 three-vrm 官方示例 VRM 资产作为明确来源</li>
           <li>通过 GLTFLoader 注册 VRMLoaderPlugin</li>
           <li>运行时尝试读取 expression manager 与 meta 信息</li>
-          <li>保留角色状态面板，方便后续接入语音、字幕和动作</li>
+          <li>生成语音、字幕、表情和嘴型走同一条时间轴</li>
         </ul>
       </section>
 
@@ -32,10 +32,12 @@
         <div class="hud hud-top">
           <span id="asset-status">准备加载 VRM 角色资产...</span>
         </div>
+        <p id="stage-caption" class="stage-caption" hidden></p>
+        <audio id="guide-audio" preload="auto" src="/audio/guide-beat.wav"></audio>
         <div class="hud hud-bottom">
           <span>拖动旋转观察</span>
           <span>滚轮缩放</span>
-          <span>按钮切换角色状态</span>
+          <span>播放导览看字幕节拍</span>
         </div>
       </section>
 
@@ -57,6 +59,13 @@
           <button type="button" data-expression="relaxed">Relaxed</button>
         </div>
 
+        <h2>字幕节拍</h2>
+        <p class="note">
+          四句生成语音。播放时状态、表情、字幕和嘴型一起走。嘴型按字开合，不是逐音素对位。
+        </p>
+        <button type="button" id="play-beat" class="beat-button" aria-pressed="false">播放导览</button>
+        <div class="beat-progress" aria-hidden="true"><span id="beat-progress-bar"></span></div>
+
         <h2>运行时证据</h2>
         <dl class="evidence-list">
           <div>
@@ -72,14 +81,26 @@
             <dd id="expression-status">等待模型加载</dd>
           </div>
           <div>
+            <dt>Caption beat</dt>
+            <dd id="beat-status">未播放</dd>
+          </div>
+          <div>
+            <dt>Voice</dt>
+            <dd id="voice-status">未朗读</dd>
+          </div>
+          <div>
+            <dt>Mouth</dt>
+            <dd id="mouth-status">闭合</dd>
+          </div>
+          <div>
             <dt>Quality</dt>
-            <dd>C2 Inspectable -> C3 Presentable baseline</dd>
+            <dd>C3 Presentable，字幕钩子已接入</dd>
           </div>
         </dl>
 
         <p class="note">
-          这不是最终角色产品页。它是 Avatar 技术路线的第一块运行时证据，后续可继续接入真实角色资产、
-          动作 clips、语音字幕和剧情镜头。
+          这不是最终角色产品页。语音是 espeak 生成的导览声，嘴型按字开合。后续仍要接入作者制作的动作
+          clip、逐音素口型和产品角色资产。
         </p>
       </section>
     </main>

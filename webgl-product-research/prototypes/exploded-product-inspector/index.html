@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="把一台假相机的零件拉开、点选，并在侧栏查看说明。"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232c333c'/%3E%3Ccircle cx='8' cy='8' r='3' fill='%238d97a6'/%3E%3C/svg%3E"
+    />
+    <title>假相机零件检视</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <canvas id="scene-canvas" aria-label="可旋转、可拉开的假相机"></canvas>
+
+      <header class="brand">
+        <p>零件检视</p>
+        <h1>假相机</h1>
+      </header>
+
+      <aside class="detail" aria-live="polite">
+        <p class="eyebrow">当前零件</p>
+        <h2 id="part-name">整机</h2>
+        <p id="part-copy">
+          拖拽旋转，滚轮拉近。点「拉开」把零件分开，再点某一块查看说明。
+        </p>
+      </aside>
+
+      <div class="controls">
+        <button id="explode" type="button">拉开</button>
+        <button id="collapse" type="button" aria-pressed="true">合上</button>
+        <button id="reset" type="button">复位</button>
+      </div>
+    </main>
+  </body>
+</html>

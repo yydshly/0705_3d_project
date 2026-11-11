@@ -214,7 +214,7 @@ Current status:
 P1 source-evidence, template baseline, VRM runtime prototype, and caption-timed guide beat.
 ```
 
-The runtime prototype proves a VRM + Three.js loading route, state/expression entry points, and one script that drives state, expression, and captions together. See `analyses/2026-11-11-avatar-caption-beat.md`. This branch is still not complete: later evidence should add authored motion clips, real speech audio, lip sync, Live2D runtime evidence, and a product-specific character asset.
+The runtime prototype proves a VRM + Three.js loading route, state/expression entry points, and one spoken guide beat. The beat plays generated Mandarin speech while state, expression, captions, and per-character mouth shapes share one clock. See `analyses/2026-11-11-avatar-caption-beat.md`. This branch is still not complete: later evidence should add authored motion clips, phoneme-level lip sync, a performed voice, Live2D runtime evidence, and a product-specific character asset.
 
 ### Skill Update
 

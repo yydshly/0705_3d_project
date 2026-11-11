@@ -11,7 +11,7 @@ VRM sample asset
   -> VRMLoaderPlugin
   -> VRM scene object
   -> idle state / gaze / expression entry points
-  -> caption-timed guide beat
+  -> spoken guide beat: voice, captions, expression, and mouth shapes
   -> quality evidence panel
 ```
 
@@ -37,14 +37,15 @@ If the port is occupied, stop the other local server or run `npm run dev -- --po
 - The scene can ground the character, light it, and expose camera inspection.
 - The UI can expose behavior states such as idle, greet, explain, and think.
 - The runtime can query and attempt to drive VRM expression data.
-- One authored script can drive state, expression, and captions from the same timeline.
+- One authored script can drive state, expression, captions, generated speech, and per-character mouth shapes from the same timeline.
 - Avatar work needs a dedicated route, not a normal product model viewer route.
 
 ## What It Does Not Prove Yet
 
 - It does not prove production-grade character art direction.
 - It does not include authored motion clips. Pose changes are still procedural.
-- It does not include speech audio or lip sync. The guide beat is text timing only.
+- Mouth shapes follow spoken characters. They are not phoneme-aligned to the waveform.
+- The voice is an espeak Mandarin render of the script, not a performed recording.
 - It does not include Live2D runtime evidence.
 - It does not include Ready Player Me integration.
 
@@ -78,7 +79,7 @@ Current level:
 C2 Inspectable -> C3 Presentable baseline
 ```
 
-The prototype can prove loading, viewing, grounding, control entry points, and a caption-timed guide beat. A real product page still needs a product-specific character asset, authored motions, expression tuning, real speech audio, lip sync, and production optimization.
+The prototype can prove loading, viewing, grounding, control entry points, and a spoken guide beat. A real product page still needs a product-specific character asset, authored motion clips, phoneme-level lip sync, a performed voice, and production optimization.
 
 Run the timeline checks with:
 

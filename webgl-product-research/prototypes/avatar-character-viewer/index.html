@@ -23,7 +23,7 @@
           <li>使用 three-vrm 官方示例 VRM 资产作为明确来源</li>
           <li>通过 GLTFLoader 注册 VRMLoaderPlugin</li>
           <li>运行时尝试读取 expression manager 与 meta 信息</li>
-          <li>字幕节拍按同一条时间轴切换状态、表情和字幕</li>
+          <li>生成语音、字幕、表情和嘴型走同一条时间轴</li>
         </ul>
       </section>
 
@@ -33,6 +33,7 @@
           <span id="asset-status">准备加载 VRM 角色资产...</span>
         </div>
         <p id="stage-caption" class="stage-caption" hidden></p>
+        <audio id="guide-audio" preload="auto" src="/audio/guide-beat.wav"></audio>
         <div class="hud hud-bottom">
           <span>拖动旋转观察</span>
           <span>滚轮缩放</span>
@@ -60,9 +61,10 @@
 
         <h2>字幕节拍</h2>
         <p class="note">
-          一条写好的导览脚本。播放时状态、表情和字幕一起切换。这里没有音频，也没有口型。
+          四句生成语音。播放时状态、表情、字幕和嘴型一起走。嘴型按字开合，不是逐音素对位。
         </p>
         <button type="button" id="play-beat" class="beat-button" aria-pressed="false">播放导览</button>
+        <div class="beat-progress" aria-hidden="true"><span id="beat-progress-bar"></span></div>
 
         <h2>运行时证据</h2>
         <dl class="evidence-list">
@@ -83,14 +85,22 @@
             <dd id="beat-status">未播放</dd>
           </div>
           <div>
+            <dt>Voice</dt>
+            <dd id="voice-status">未朗读</dd>
+          </div>
+          <div>
+            <dt>Mouth</dt>
+            <dd id="mouth-status">闭合</dd>
+          </div>
+          <div>
             <dt>Quality</dt>
             <dd>C3 Presentable，字幕钩子已接入</dd>
           </div>
         </dl>
 
         <p class="note">
-          这不是最终角色产品页。字幕节拍只证明脚本可以驱动状态和表情。后续仍要接入动作
-          clips、真实语音、口型和产品角色资产。
+          这不是最终角色产品页。语音是 espeak 生成的导览声，嘴型按字开合。后续仍要接入作者制作的动作
+          clip、逐音素口型和产品角色资产。
         </p>
       </section>
     </main>

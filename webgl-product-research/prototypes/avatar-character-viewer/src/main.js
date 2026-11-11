@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { VRMLoaderPlugin, VRMUtils } from '@pixiv/three-vrm';
+import { GUIDE_BEAT, cueIndexAt, isBeatComplete } from './captionBeat.js';
 
 const VRM_URL = '/models/VRM1_Constraint_Twist_Sample.vrm';
 
@@ -13,6 +14,9 @@ const assetNameEl = document.querySelector('#asset-name');
 const runtimeRouteEl = document.querySelector('#runtime-route');
 const stateButtons = [...document.querySelectorAll('[data-state]')];
 const expressionButtons = [...document.querySelectorAll('[data-expression]')];
+const playBeatButton = document.querySelector('#play-beat');
+const stageCaptionEl = document.querySelector('#stage-caption');
+const beatStatusEl = document.querySelector('#beat-status');
 
 const clock = new THREE.Clock();
 const scene = new THREE.Scene();
@@ -84,6 +88,7 @@ let currentVrm = null;
 let activeState = 'idle';
 let activeExpression = 'neutral';
 let loadStartedAt = performance.now();
+let beatPlayback = null;
 
 function setStatus(text) {
   statusEl.textContent = text;
@@ -122,7 +127,7 @@ function setExpression(name) {
   }
 }
 
-function setState(name) {
+function setState(name, { silent = false } = {}) {
   activeState = name;
   setActiveButton(stateButtons, name, 'state');
   const copy = {
@@ -131,7 +136,65 @@ function setState(name) {
     explain: 'Explain: 角色转向说明面板，适合产品导览。',
     think: 'Think: 节奏放慢，模拟思考/等待响应。',
   };
-  setStatus(copy[name]);
+  if (!silent) setStatus(copy[name]);
+}
+
+function setBeatUi({ pressed, caption = '', status }) {
+  playBeatButton.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+  playBeatButton.textContent = pressed ? '停止导览' : '播放导览';
+  stageCaptionEl.hidden = caption === '';
+  stageCaptionEl.textContent = caption;
+  if (status) beatStatusEl.textContent = status;
+}
+
+function cancelBeat(status) {
+  if (!beatPlayback) return;
+  beatPlayback = null;
+  setBeatUi({ pressed: false, status });
+}
+
+function stopBeat(status) {
+  beatPlayback = null;
+  setBeatUi({ pressed: false, status });
+  setState('idle', { silent: true });
+  setExpression('neutral');
+}
+
+function toggleBeat() {
+  if (beatPlayback) {
+    stopBeat('导览已停止，回到 Idle');
+    setStatus('导览已停止，角色回到 Idle。');
+    return;
+  }
+
+  beatPlayback = { startedAt: performance.now(), cueIndex: -1 };
+  setBeatUi({ pressed: true, status: '导览准备开始' });
+  setStatus('导览播放中。状态、表情和字幕使用同一条时间轴。');
+}
+
+function updateBeat() {
+  if (!beatPlayback) return;
+
+  const elapsed = performance.now() - beatPlayback.startedAt;
+  if (isBeatComplete(GUIDE_BEAT, elapsed)) {
+    stopBeat('导览已结束，回到 Idle');
+    setStatus('导览结束。字幕钩子已走完，角色回到 Idle。');
+    return;
+  }
+
+  const cueIndex = cueIndexAt(GUIDE_BEAT, elapsed);
+  if (cueIndex === beatPlayback.cueIndex || cueIndex < 0) return;
+
+  const cue = GUIDE_BEAT.cues[cueIndex];
+  beatPlayback.cueIndex = cueIndex;
+  setState(cue.state, { silent: true });
+  setExpression(cue.expression);
+  setBeatUi({
+    pressed: true,
+    caption: cue.caption,
+    status: `${cueIndex + 1} / ${GUIDE_BEAT.cues.length} · ${cue.state} / ${cue.expression}`,
+  });
+  setStatus(`导览 ${cueIndex + 1}/${GUIDE_BEAT.cues.length}`);
 }
 
 function updateCharacterMotion(elapsed) {
@@ -230,12 +293,20 @@ function resize() {
 }
 
 stateButtons.forEach((button) => {
-  button.addEventListener('click', () => setState(button.dataset.state));
+  button.addEventListener('click', () => {
+    cancelBeat('已改用手动状态');
+    setState(button.dataset.state);
+  });
 });
 
 expressionButtons.forEach((button) => {
-  button.addEventListener('click', () => setExpression(button.dataset.expression));
+  button.addEventListener('click', () => {
+    cancelBeat('已改用手动表情');
+    setExpression(button.dataset.expression);
+  });
 });
+
+playBeatButton.addEventListener('click', toggleBeat);
 
 window.addEventListener('resize', resize);
 
@@ -243,6 +314,7 @@ function animate() {
   const delta = clock.getDelta();
   const elapsed = clock.elapsedTime;
 
+  updateBeat();
   updateCharacterMotion(elapsed);
   currentVrm?.update(delta);
   ring.rotation.z += delta * 0.16;

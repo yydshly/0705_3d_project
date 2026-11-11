@@ -87,6 +87,7 @@ webgl-product-research/11-3dgs-technical-guide.md
 webgl-product-research/templates/avatar-character-input-brief.md
 webgl-product-research/templates/character-display-checklist.md
 webgl-product-research/analyses/2026-07-06-avatar-character-motion.md
+webgl-product-research/analyses/2026-11-11-avatar-caption-beat.md
 webgl-product-research/12-character-avatar-technical-guide.md
 ```
 

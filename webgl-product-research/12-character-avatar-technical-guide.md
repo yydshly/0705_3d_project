@@ -226,4 +226,12 @@ Minimum target:
 - voice/caption hook;
 - quality checklist result.
 
+Current runtime status:
+
+```text
+avatar-character-viewer now has the sourced VRM sample, idle motion,
+expression entry points, camera orbit, and a caption-timed guide beat.
+The beat has no audio. Authored motion clips and lip sync are still open.
+```
+
 If no reliable asset is available, start with the templates first and mark the prototype as blocked by asset quality rather than hiding the gap with placeholder geometry.

@@ -23,7 +23,7 @@
           <li>使用 three-vrm 官方示例 VRM 资产作为明确来源</li>
           <li>通过 GLTFLoader 注册 VRMLoaderPlugin</li>
           <li>运行时尝试读取 expression manager 与 meta 信息</li>
-          <li>保留角色状态面板，方便后续接入语音、字幕和动作</li>
+          <li>字幕节拍按同一条时间轴切换状态、表情和字幕</li>
         </ul>
       </section>
 
@@ -32,10 +32,11 @@
         <div class="hud hud-top">
           <span id="asset-status">准备加载 VRM 角色资产...</span>
         </div>
+        <p id="stage-caption" class="stage-caption" hidden></p>
         <div class="hud hud-bottom">
           <span>拖动旋转观察</span>
           <span>滚轮缩放</span>
-          <span>按钮切换角色状态</span>
+          <span>播放导览看字幕节拍</span>
         </div>
       </section>
 
@@ -57,6 +58,12 @@
           <button type="button" data-expression="relaxed">Relaxed</button>
         </div>
 
+        <h2>字幕节拍</h2>
+        <p class="note">
+          一条写好的导览脚本。播放时状态、表情和字幕一起切换。这里没有音频，也没有口型。
+        </p>
+        <button type="button" id="play-beat" class="beat-button" aria-pressed="false">播放导览</button>
+
         <h2>运行时证据</h2>
         <dl class="evidence-list">
           <div>
@@ -72,14 +79,18 @@
             <dd id="expression-status">等待模型加载</dd>
           </div>
           <div>
+            <dt>Caption beat</dt>
+            <dd id="beat-status">未播放</dd>
+          </div>
+          <div>
             <dt>Quality</dt>
-            <dd>C2 Inspectable -> C3 Presentable baseline</dd>
+            <dd>C3 Presentable，字幕钩子已接入</dd>
           </div>
         </dl>
 
         <p class="note">
-          这不是最终角色产品页。它是 Avatar 技术路线的第一块运行时证据，后续可继续接入真实角色资产、
-          动作 clips、语音字幕和剧情镜头。
+          这不是最终角色产品页。字幕节拍只证明脚本可以驱动状态和表情。后续仍要接入动作
+          clips、真实语音、口型和产品角色资产。
         </p>
       </section>
     </main>
